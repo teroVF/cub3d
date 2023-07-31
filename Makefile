@@ -3,6 +3,8 @@
 NAME = cub3D
 CC = cc
 LIBFT = ../libft/libft.a
+MINILIBX = ../minilibx-linux/libmlx.a
+MINI = -L ../minilibx-linux -lmlx -lXext -lX11 -lm
 SRC_PATH = src/
 OBJ_PATH = obj/
 bonus_PATH = bonus/
@@ -37,17 +39,20 @@ WHITE = \033[0;97m
 all: $(NAME)
 
 #MANDATORY
-$(NAME):	$(LIBFT) $(PHILO_OBJ)
+$(NAME):	$(LIBFT) $(MINILIBX) $(PHILO_OBJ)
 			@echo "$(YELLOW) Compiling: $@ $(DEF_COLOR)"
-			@$(CC) $(INCS) $(CFLAGS) $(LIBFT) -O3 $(PHILO_OBJ) -o $@
+			@$(CC) $(INCS) $(CFLAGS) $(MINI) $(LIBFT) $(MINILIBX) -O3 $(PHILO_OBJ) -o $@
 
 $(OBJ_PATH)%.o:		$(SRC_PATH)%.c
 			@mkdir -p $(OBJ_PATH)
 			@echo "$(YELLOW) Compiling: $< $(DEF_COLOR)"
 			@$(CC) $(INCS) $(CFLAGS) -c $< -o $@
 
-LIBFT:
-			@make -C ../libft
+$(LIBFT):
+			@make -C ./libft/
+
+$(MINILIBX):
+			@make -C ./minilibx-linux
 
 PERF:		fclean $(PHILO_OBJ)
 			@echo "$(YELLOW) Compiling: $@ $(DEF_COLOR)"
@@ -75,6 +80,8 @@ assemble_s:
 
 clean:
 			@$(RM) $(OBJ_PATH)
+			@make clean -C ./libft/
+			@make clean -C ./minilibx-linux
 			@echo "$(BLUE)All objects files cleaned!$(DEF_COLOR)"
 
 fclean: 	clean
