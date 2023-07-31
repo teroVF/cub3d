@@ -2,6 +2,7 @@
 
 NAME = cub3D
 CC = cc
+LIBFT = ../libft/libft.a
 SRC_PATH = src/
 OBJ_PATH = obj/
 bonus_PATH = bonus/
@@ -16,10 +17,10 @@ FILES        =     	main
 
 # BONUS_FILES	=		
 
-PHILO_SRC = $(addprefix src/, $(addsuffix .c, $(FILES)))
-PHILO_OBJ = $(addprefix obj/, $(addsuffix .o, $(FILES)))
+CUB3D_SRC = $(addprefix src/, $(addsuffix .c, $(FILES)))
+CUB3D_OBJ = $(addprefix obj/, $(addsuffix .o, $(FILES)))
 OBJS =	$(addprefix $(OBJ_PATH), $(OBJ))
-INCS = -I ../includes
+INCS = -I ../includes 
 
 #Colors
 
@@ -36,14 +37,17 @@ WHITE = \033[0;97m
 all: $(NAME)
 
 #MANDATORY
-$(NAME):	$(PHILO_OBJ)
+$(NAME):	$(LIBFT) $(PHILO_OBJ)
 			@echo "$(YELLOW) Compiling: $@ $(DEF_COLOR)"
-			@$(CC) $(INCS) $(CFLAGS) -O3 $(PHILO_OBJ) -o $@
+			@$(CC) $(INCS) $(CFLAGS) $(LIBFT) -O3 $(PHILO_OBJ) -o $@
 
 $(OBJ_PATH)%.o:		$(SRC_PATH)%.c
 			@mkdir -p $(OBJ_PATH)
 			@echo "$(YELLOW) Compiling: $< $(DEF_COLOR)"
 			@$(CC) $(INCS) $(CFLAGS) -c $< -o $@
+
+LIBFT:
+			@make -C ../libft
 
 PERF:		fclean $(PHILO_OBJ)
 			@echo "$(YELLOW) Compiling: $@ $(DEF_COLOR)"
