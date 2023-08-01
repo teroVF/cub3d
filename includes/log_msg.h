@@ -6,7 +6,7 @@
 /*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 03:53:52 by antero            #+#    #+#             */
-/*   Updated: 2023/07/31 01:35:40 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/01 02:21:36 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,7 @@
 # define WHITE "\033[0;97m"
 
 /* ERROR MESSAGES */
-# define FEW_ARG RED"Few Arguments."DEF
-# define TOO_SMALL RED"All time arguments should be greater than 60"DEF
-# define TOO_BIG RED"All time arguments should be Less than LONG_MAX"DEF
-# define TOO_BIG_MEALS RED"Meals argument should be Less than INT_MAX"DEF
-# define TOO_MANY_PHILO RED"Too many Philosophers. Max: MAX_INT"DEF
-# define TOO_SMALL_MEALS RED"Meals argument should be greater than 0"DEF
-# define NOT_NBR RED"All arguments should be a number"DEF
-# define NEG_ARG RED"All arguments should be positive"DEF
-# define MANY_ARG RED"Many Arguments"DEF
-# define MALLOC_ERROR RED"Malloc error"DEF
-# define CREATE_THREAD_ERROR RED"Error creating thread"DEF
-# define MUTEX_ERROR_FORK RED"Error creating mutex for fork"DEF
-# define MUTEX_ERROR_STOP RED"Error creating mutex for stop"DEF
-# define MUTEX_ERROR_WRITE RED"Error creating mutex for write"DEF
-# define JOIN_THREAD_ERROR RED"Error joining thread"DEF
-# define ALL_ARGUMENTS RED"./PHILONBR NBR_PHILOSOPHERS \
-TIME_TO_DIE TIME_TO_EAT TIME_TO_SLEEP [NBR_MEALS]"DEF
-# define FORK_ERROR RED"Error creating fork"DEF
-# define SEM_ERROR_FORK RED"Error creating semaphore for fork"DEF
-
+# define INVALID_NBR_ARGS RED"Invalid number of arguments"DEF
+# define NULL_MAP RED"NULL map argument"DEF
+# define INVALID_MAP_FILE RED"Invalid map file"DEF
 #endif
