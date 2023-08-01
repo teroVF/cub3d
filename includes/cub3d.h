@@ -6,7 +6,7 @@
 /*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/01 03:03:31 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/01 22:16:17 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,18 @@
 
 typedef struct s_game
 {
-    
-}			t_game;
+    int         **map;
+    int         x;
+    int         y;
+    t_player    player;
+}			    t_game;
+
+typedef struct s_player
+{
+    double  x;
+    double  y;
+    double  dir_x;
+    double  dir_y; 
+}			t_player;
 
 #endif
