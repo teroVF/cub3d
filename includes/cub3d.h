@@ -6,7 +6,7 @@
 /*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/07/31 01:52:31 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/01 03:03:31 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,9 @@
 
 # define PI 3.14159265358979323846
 
+typedef struct s_game
+{
+    
+}			t_game;
 
 #endif
