@@ -14,6 +14,7 @@ int create_floor(void *mlx, void *window, int gameWidth, int gameHeight, int col
         while (x < gameWidth)
         {
             mlx_pixel_put(mlx, window, x, y, color_floor);
+            usleep(100);
             x++;
         }
         y++;
@@ -35,6 +36,7 @@ int create_ceiling(void *mlx, void *window, int gameWidth, int gameHeight, int c
         while (x < gameWidth)
         {
             mlx_pixel_put(mlx, window, x, y, color_ceiling);
+            usleep(100);
             x++;
         }
         y++;
@@ -64,19 +66,19 @@ int rayscasting()
         {'1', '0', '0', '0', '0', '0', '0', '0', '1'},
         {'1', '0', '1', '1', '1', '1', '1', '0', '1'},
         {'1', '0', '1', '0', '0', '0', '1', '0', '1'},
-        {'1', '0', '1', '0', '1', '0', '1', '0', '1'},
+        {'1', '0', '1', '0', 'p', '0', '1', '0', '1'},
         {'1', '0', '1', '0', '0', '0', '1', '0', '1'},
         {'1', '0', '1', '0', '1', '0', '1', '0', '1'},
         {'1', '0', '0', '0', '1', '0', '0', '0', '1'},
         {'1', '0', '0', '0', '0', '0', '0', '0', '1'},
         {'1', '1', '1', '1', '1', '1', '1', '1', '1'}
     };
-    int pos_x = 5;
-    int pos_y = 5;
-    int dir_x = 0;
-    int dir_y = -1;
-    int plane_x = 0.66;
-    int plane_y = 0;
+    // int pos_x = 5;
+    // int pos_y = 5;
+    // int dir_x = 0;
+    // int dir_y = -1;
+    // int plane_x = 0.66;
+    // int plane_y = 0;
 
     int gameWidth = 320;
     int gameHeight = 200;

@@ -48,7 +48,8 @@
 	"stdexcept": "c",
 	"streambuf": "c",
 	"typeinfo": "c",
-	"minishell.h": "c"
+	"minishell.h": "c",
+	"math.h": "c"
 },
   "C_Cpp.errorSquiggles": "disabled",
   "C_Cpp_Runner.msvcBatchPath": "",
