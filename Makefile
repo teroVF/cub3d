@@ -81,7 +81,7 @@ assemble_s:
 clean:
 			@$(RM) $(OBJ_PATH)
 			@make clean -C ./libft/
-			@make clean -C ./minilibx-linux
+			@make clean -C ./mlx/
 			@echo "$(BLUE)All objects files cleaned!$(DEF_COLOR)"
 
 fclean: 	clean
