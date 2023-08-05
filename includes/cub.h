@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/05 04:44:09 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/05 16:07:26 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef CUB_H
+# define CUB_H
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -32,7 +32,7 @@
 
 # define PI 3.14159265358979323846
 
-
+extern char map[10][10];
 // o vector dos feixes de raios eh  direcao do jogador + plano da camera vezes um valor de -1 a 1 
 // o plano eh perpendicular a direcao do jogador. A direcao do jogador intercepta o plano no ponto central da camera
 // o multicador = 2*(x/width) - 1 ||| de -1 a 1

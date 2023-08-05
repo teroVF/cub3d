@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   euclidean_dist_hz.c                                :+:      :+:    :+:   */
+/*   vector1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 00:41:50 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/05 03:21:55 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/05 15:49:24 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,12 @@
 
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../includes/cub.h"
 
 double  perpendicular_dist_x(t_player *p, int step_x)
 {
     double n;
-    n = fabs(p->map_square_x - p->pos_x + ((1 - step_x) / 2));
+    n = fabs(p->map_square.x - p->pos.x + ((1 - step_x) / 2));
     n = n / p->ray_dir.x;
     return (n);
 }
@@ -78,7 +78,7 @@ double  perpendicular_dist_x(t_player *p, int step_x)
 double  perpendicular_dist_y(t_player *p, int step_y)
 {
     double n;
-    n = fabs(p->map_square_y - p->pos_y + ((1 - step_y) / 2));
+    n = fabs(p->map_square.y - p->pos.y + ((1 - step_y) / 2));
     n = n / p->ray_dir.y;
     return (n);
 }
