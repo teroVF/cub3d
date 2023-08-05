@@ -2,9 +2,9 @@
 
 NAME = cub3D
 CC = cc
-LIBFT = ../libft/libft.a
-MINILIBX = ../minilibx-linux/libmlx.a
-MINI = -L ../minilibx-linux -lmlx -lXext -lX11 -lm
+LIBFT = ./libft/libft.a
+MINILIBX = ./mlx/libmlx.a
+MINI = -L ./mlx -lmlx -lXext -lX11 -lm
 SRC_PATH = src/
 OBJ_PATH = obj/
 bonus_PATH = bonus/
@@ -15,13 +15,12 @@ PERFORMANCE = -O3 -march=native -flto -funroll-loops
 RM = rm -fr
 
 #Sources
-FILES        =     	main
+FILES        =     	main render vector1 vector2 dda
 
 # BONUS_FILES	=		
 
 CUB3D_SRC = $(addprefix src/, $(addsuffix .c, $(FILES)))
 CUB3D_OBJ = $(addprefix obj/, $(addsuffix .o, $(FILES)))
-OBJS =	$(addprefix $(OBJ_PATH), $(OBJ))
 INCS = -I ../includes 
 
 #Colors
@@ -39,9 +38,9 @@ WHITE = \033[0;97m
 all: $(NAME)
 
 #MANDATORY
-$(NAME):	$(LIBFT) $(MINILIBX) $(PHILO_OBJ)
+$(NAME):	$(LIBFT) $(MINILIBX) $(CUB3D_OBJ)
 			@echo "$(YELLOW) Compiling: $@ $(DEF_COLOR)"
-			@$(CC) $(INCS) $(CFLAGS) $(MINI) $(LIBFT) $(MINILIBX) -O3 $(PHILO_OBJ) -o $@
+			@$(CC) $(INCS) $(CFLAGS) $(MINI) $(LIBFT) $(MINILIBX) -o $@
 
 $(OBJ_PATH)%.o:		$(SRC_PATH)%.c
 			@mkdir -p $(OBJ_PATH)
@@ -52,7 +51,7 @@ $(LIBFT):
 			@make -C ./libft/
 
 $(MINILIBX):
-			@make -C ./minilibx-linux
+			@make -C ./mlx
 
 PERF:		fclean $(PHILO_OBJ)
 			@echo "$(YELLOW) Compiling: $@ $(DEF_COLOR)"
