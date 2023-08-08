@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   .mai1n.c                                           :+:      :+:    :+:   */
+/*   cub_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 01:33:02 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/05 14:45:29 by anvieira         ###   ########.fr       */
+/*   Created: 2023/08/06 17:40:11 by anvieira          #+#    #+#             */
+/*   Updated: 2023/08/08 18:25:44 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/cub.h"
 
+int player_init(t_player *p)
+{
+    p->pos.x = 5;
+    p->pos.y = 5;
+    p->dir.x = -1;
+    p->dir.y = 0;
+    p->plane.x = 0.66;
+    p->plane.y = 0;
 
-// int main(int ac, char** av)
-// {
-// 	if (ac != 2)
-// 		error_msg(INVALID_NBR_ARGS);
-// 	if (argv[1] == NULL)
-// 		error_msg(NULL_MAP);
-// 	if (!valid_cub(argv[1]))
-// 		error_msg(INVALID_MAP_FILE);
-// 	return (EXIT_SUCCESS);
-// }
+    
+    return (0);
+}
+
+int game_init(t_game *g)
+{
+    g->game_h = WIN_H;
+    g->game_w = WIN_W;
+    
+    return (0);
+}

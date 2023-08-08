@@ -3,7 +3,7 @@
 		{
 			"label": "build",
 			"type": "shell",
-			"command": "make -C minishell/",
+			"command": "make re",
 			"group": {
 				"kind": "build",
 				"isDefault": true

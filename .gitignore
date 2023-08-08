@@ -1,1 +1,4 @@
-*/*.o
+src/*.o
+lib/libft/*.o
+lib/libft/libft.a
+cub3D

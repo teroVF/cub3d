@@ -8,14 +8,16 @@ LIB = -L./lib/mlx -L./lib/libft -lft -lmlx_Linux -lXext -lX11 -lm
 SRC_PATH = src/
 OBJ_PATH = obj/
 bonus_PATH = bonus/
-CFLAGS = -Wall -Werror -Wextra -pthread
+CFLAGS = -Wall -Werror -Wextra -g
 DEBUG = -fsanitize=address
 DEBUG_T = -fsanitize=thread
 PERFORMANCE = -O3 -march=native -flto -funroll-loops
 RM = rm -fr
 
 #Sources
-FILES        =     	main render vector1 vector2 dda
+FILES        =     	main render vector1 vector2 dda hooks \
+					utils parse parse_utils parse_map cub_init \
+					clean_exit raycasting
 
 # BONUS_FILES	=		
 
@@ -41,7 +43,7 @@ all: $(NAME)
 $(NAME):	$(LIBFT) $(MINILIBX) $(CUB3D_OBJ)
 			
 			@echo "$(YELLOW) Compiling: $@ $(DEF_COLOR)"
-			@$(CC) $(INCS) $(CFLAGS) $(CUB3D_OBJ) $(LIB) -o $@
+			@$(CC) $(INCS) $(CFLAGS) -O3 $(CUB3D_OBJ) $(LIB) -o $@
 
 $(OBJ_PATH)%.o:		$(SRC_PATH)%.c
 			@mkdir -p $(OBJ_PATH)

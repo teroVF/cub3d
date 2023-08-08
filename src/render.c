@@ -6,13 +6,13 @@
 /*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 03:22:44 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/05 15:49:08 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/06 17:34:13 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub.h"
 
-static int create_floor(t_game *g)
+static inline int create_floor(t_game *g)
 {
     int x;
     int y;
@@ -33,14 +33,14 @@ static int create_floor(t_game *g)
     return (0);
 }
 
-static int create_ceiling(t_game *g)
+static inline int create_ceiling(t_game *g)
 {
     int x;
     int y;
     y = 0;
     x = 0;
 
-    while (y < g->game_h / 2)
+    while (y < g->game_h)
     {
         x = 0;
         while (x < g->game_w)
@@ -54,10 +54,9 @@ static int create_ceiling(t_game *g)
     return (0);
 }
 
-int create_background(t_game *g)
+inline int create_background(t_game *g)
 {
-    create_floor(g);
     create_ceiling(g); 
-    mlx_loop(g->mlx);
+    create_floor(g);
     return (0);
 }

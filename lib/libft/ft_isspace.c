@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_validation.c                                   :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/01 01:49:56 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/01 01:54:02 by anvieira         ###   ########.fr       */
+/*   Created: 2023/08/02 12:55:16 by wcorrea-          #+#    #+#             */
+/*   Updated: 2023/08/02 12:59:20 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	valid_cub(char *map_file)
-{
-	size_t	i;
+#include "libft.h"
 
-	i = ft_strlen(map_file) - 4;
-	if (ft_strncmp(".cub", &map_file[i], 4) == 0)
+int	ft_isspace(int c)
+{
+	if (c == ' ' || (c >= 9 && c <= 13))
 		return (1);
 	return (0);
-}
-
-void	error_msg(char *error_msg)
-{
-	ft_putstr_fd("Error\n", STDERR_FILENO);
-	ft_putendl_fd(error_msg, STDERR_FILENO);
-    return (EXIT_FAILURE);
 }

@@ -6,7 +6,7 @@
 /*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 03:53:52 by antero            #+#    #+#             */
-/*   Updated: 2023/08/05 14:54:09 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/08 17:44:12 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,76 @@
 # define WHITE "\033[0;97m"
 
 /* ERROR MESSAGES */
-# define INVALID_NBR_ARGS RED"Invalid number of arguments"DEF
-# define NULL_MAP RED"NULL map argument"DEF
-# define INVALID_MAP_FILE RED"Invalid map file"DEF
+# define NO				0
+# define YES 			1
+
+# define CUB 			1
+# define XPM			2
+
+# define TEXTURE		1
+# define COLOR			2
+
+# define NORTH			1
+# define SOUTH			2
+# define EAST			3
+# define WEST			4
+# define FLOOR			5
+# define CEILING		6
+
+# define SPAWN_CHARS	"NSEW"
+# define VALID_CHARS	" 01NSEW"
+# define SPLIT_RGB		" ,"
+
+# define ERR_ARGS		"Invalid number of arguments"
+
+# define ERR_CUB		"Invalid input file name"
+# define ERR_CUB_EXT	"Input file must be .cub"
+# define ERR_CUB_OPEN	"Couldn't open input file"
+
+# define ERR_XPM		"Invalid texture file name"
+# define ERR_XPM_EXT	"Asset file must be .xpm"
+# define ERR_XPM_OPEN	"Couldn't open texture file"
+# define ERR_XPM_RPT	"Has repeated textures in this input file"
+# define ERR_XPM_CALL	"Has repeated textures calls in this input file"
+
+# define ERR_COLOR_FMT	"Color format must be R,G,B"
+# define ERR_COLOR_NUM	"Colors must have only positive numbers"
+# define ERR_COLOR_RANG "Colors must be between 0 and 255"
+# define ERR_COLOR_CALL	"Has repeated colors calls in this input file"
+
+# define ERR_INVALID	"The input file has invalid parameters"
+# define ERR_PARAMS		"The input file doesn't have all necessary parameters"
+
+# define ERR_MAP_EMPTY	"Map is not configured correctly"
+# define ERR_MAP_WALLS	"The map isn't well surrounded by walls"
+# define ERR_MAP_CHARS	"Invalid character in map"
+# define ERR_MAP_MSPAWN	"Multiple spawn points"
+# define ERR_MAP_NSPAWN	"No spawn point"
+
+/* CONFIG */
+#define WIN_W 320
+#define WIN_H 200
+#define PLANEX 0
+#define PLANEY 0.66
+
+#define NORTH_Y = -1;
+#define NORTH_X = 0;
+#define NORTH_PLane_X = 0.66;
+#define SOUTH_Y = 1;
+#define SOUTH_X = 0;
+#define SOUTH_PLane_X = -0.66;
+#define EAST_Y = 0;
+#define EAST_X = 1;
+#define EAST_PLane_Y = 0.66;
+#define WEST_Y = 0;
+#define WEST_X = -1;
+
+/* KEYS */
+#define KEY_ESC 65307
+#define LEFT 65361
+#define RIGHT 65363
+#define W 119
+#define A 97
+#define S 115
+#define D 100
 #endif

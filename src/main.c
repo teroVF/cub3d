@@ -5,85 +5,55 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 04:39:10 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/05 15:47:59 by anvieira         ###   ########.fr       */
+/*   Created: 2023/05/14 09:44:54 by wcorrea-          #+#    #+#             */
+/*   Updated: 2023/08/08 04:16:02 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../includes/cub.h"
 
-char map[10][10] =
-	{	//0    1    2    3    4    5    6    7    8    9
-		{'1', '1', '1', '1', '1', '1', '1', '1', '1', '1'}, //0
-		{'1', '0', '0', '0', '0', '0', '0', '0', '1', '1'}, //1
-		{'1', '0', '0', '1', '1', '1', '1', '0', '1', '1'}, //2
-		{'1', '0', '1', '0', '0', '0', '1', '0', '1', '1'}, //3
-		{'1', '0', '1', '0', '0', '0', '0', '0', '1', '1'}, //4
-		{'1', '0', '1', '1', '0', '0', '0', '0', '1', '1'}, //5
-		{'1', '0', '1', '1', '0', '0', '1', '0', '1', '1'}, //6
-		{'1', '0', '1', '0', '0', '0', '1', '0', '1', '1'}, //7
-		{'1', '0', '1', '0', '0', '0', '0', '0', '0', '1'}, //8
-		{'1', '1', '1', '1', '1', '1', '1', '1', '1', '1'}  //9
-	};
-
-void render_collumn_pixel(t_game *g)
+void	convert_int_bit_to_rgb(t_game *cub3d, int r, int g, int b)
 {
-    int x;
-    int y;
-    int color;
-
-    
-    y = g->player.tall_of_wall_y1;
-    x = g->pixel;
-    //red
-    int color1 = 0x00FF0000;
-    //dark red
-    int color2 = 0x00B20000;
-    if (g->player.hit_side == 1)
-        color = color1;
-    else
-        color = color2;
-    while (y < g->player.tall_of_wall_y2)
-    {
-        mlx_pixel_put(g->mlx, g->window, x, y, color);
-        y++;
-    }
+	r = (cub3d->floor >> 16) & 0xFF;
+	g = (cub3d->floor >> 8) & 0xFF;
+	b = cub3d->floor & 0xFF;
+	printf("floor  : %d,%d,%d\n", r, g, b);
+	r = (cub3d->ceiling >> 16) & 0xFF;
+	g = (cub3d->ceiling >> 8) & 0xFF;
+	b = cub3d->ceiling & 0xFF;
+	printf("ceiling: %d,%d,%d\n", r, g, b);
 }
 
-//Multiplicador = 2 * (x/width) -1
-int rayscasting(t_game  *g)
+void	init_game(t_game *cub3d)
 {
-    g->pixel = 0;
-    g->color_floor = 0x5ED41D;
-    g->color_ceiling = 0x5ED4E1;
-    create_background(g);
-    g->player.pos.x = 5;
-    g->player.pos.y = 5;
-    g->player.dir.y = 0;
-    g->player.dir.x = -1;
-    g->player.plane.x = 0.66;
-    g->player.plane.y = 0;
-    while (g->pixel < g->game_w)
-    {
-        g->player.ray_dir.x = g->player.dir.x + g->player.plane.x * (2 * (g->pixel / g->game_w) - 1);
-        g->player.ray_dir.y = g->player.dir.y + g->player.plane.y * (2 * (g->pixel / g->game_w) - 1);
-        dda(g);
-        render_collumn_pixel(g);
-        g->pixel++;
-    }
-
-    return (0);
+	// ft_bzero(cub3d, sizeof(t_game));
+	cub3d->north = NULL;
+	cub3d->south = NULL;
+	cub3d->east = NULL;
+	cub3d->west = NULL;
+	cub3d->line = NULL;
+	cub3d->colors = NULL;
+	cub3d->ceiling = -1;
+	cub3d->floor = -1;
+	cub3d->spawn = 0;
+	cub3d->start_map = NO;
+	cub3d->temp_map = NULL;
+	cub3d->empty_line = NO;
 }
 
-
-int main(void)
+void	launch_game(char *file)
 {
-    t_game g;
-    g.game_w = 320;
-    g.game_h = 200;
-    g.mlx = mlx_init();
-    g.window = mlx_new_window(g.mlx, g.game_w, g.game_h, "Cub3D");
-    rayscasting(&g);
-    return (0);
+	t_game	cub3d;
+	ft_memset(&cub3d, 0, sizeof(t_game));
+	init_game(&cub3d);
+	parse_file(&cub3d, file);
+	quit_game(&cub3d);
+}
+
+int	main(int ac, char **av)
+{
+	if (ac != 2)
+		exit_error(NULL, ERR_ARGS);
+	check_filename(NULL, av[1], CUB);
+	launch_game(av[1]);
 }
