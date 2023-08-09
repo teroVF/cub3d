@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   log_msg.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 03:53:52 by antero            #+#    #+#             */
-/*   Updated: 2023/08/08 17:44:12 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/09 15:49:56 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,15 @@
 #define NORTH_Y = -1;
 #define NORTH_X = 0;
 #define NORTH_PLane_X = 0.66;
-#define SOUTH_Y = 1;
-#define SOUTH_X = 0;
-#define SOUTH_PLane_X = -0.66;
-#define EAST_Y = 0;
-#define EAST_X = 1;
-#define EAST_PLane_Y = 0.66;
-#define WEST_Y = 0;
-#define WEST_X = -1;
+#define NORTH_PLane_Y = 0;
+// #define SOUTH_Y = 1;
+// #define SOUTH_X = 0;
+// #define SOUTH_PLane_X = -0.66;
+// #define EAST_Y = 0;
+// #define EAST_X = 1;
+// #define EAST_PLane_Y = 0.66;
+// #define WEST_Y = 0;
+// #define WEST_X = -1;
 
 /* KEYS */
 #define KEY_ESC 65307

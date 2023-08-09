@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 23:26:10 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/08 04:12:44 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/09 16:02:52 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,50 @@ void	parse_map_line(t_game *cub3d, char *line)
 	}
 }
 
+// void	set_direction(t_game *cub3d, int i, int j)
+// {
+// 	cub3d->player.dir.x = 	NORTH_X
+// 	cub3d->player.dir.y =   NORTH_Y
+// 	cub3d->player.plane.x = NORTH_PLane_X
+// 	cub3d->player.plane.y = NORTH_PLane_Y
+// 	if (cub3d->map[i][j] == 'S')
+// 		cub3d->player.dir= mult_vector(cub3d->player.dir, -1);
+// 	else if (cub3d->map[i][j] == 'W')
+// 	{
+// 		cub3d->player.dir.x = NORTH_PLane_X
+// 		cub3d->player.dir.y = NORTH_PLane_Y
+// 		cub3d->player.plane.x = NORTH_X
+// 		cub3d->player.plane.y = NORTH_Y
+// 	}
+// 	else if (cub3d->map[i][j] == 'W')
+// 	{
+// 		cub3d->player.dir.x = NORTH_PLane_X * -1
+// 		cub3d->player.dir.y = NORTH_PLane_Y * -1
+// 		cub3d->player.plane.x = NORTH_X * -1
+// 		cub3d->player.plane.y = NORTH_Y * -1
+// 	}
+// }
+
+void	set_player_position(t_game *cub3d, int i, int j)
+{
+	while (cub3d->map[++i])
+	{
+		j = -1;
+		while (cub3d->map[i][++j])
+		{
+			if (cub3d->map[i][j] == cub3d->spawn)
+			{
+				cub3d->player.pos.x = j + 0.5;
+				cub3d->player.pos.y = i + 0.5;
+				cub3d->map[i][j] = '0';
+				printf("player: %f,%f\n", cub3d->player.pos.x, cub3d->player.pos.y);
+				set_direction(cub3d, i, j);
+				return ;
+			}
+		}
+	}
+}
+
 void	parse_map(t_game *cub3d, int fd)
 {
 	while (cub3d->line)
@@ -114,4 +158,5 @@ void	parse_map(t_game *cub3d, int fd)
 		cub3d->temp_map = NULL;
 	}
 	check_map(cub3d, -1, -1);
+	set_player_position(cub3d, -1, -1);
 }
