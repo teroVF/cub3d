@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 21:59:15 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/09 21:59:59 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/09 22:08:11 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,10 @@ void	rotate_vector(t_vector *v, double angle)
 	v->y = x * sin(angle) + y * cos(angle);
 }
 
-void	set_direction(t_game *cub3d, int i, int j)
+void	set_direction(t_game *cub3d)
 {
-	printf("dir x: %f\n", cub3d->player.dir.x);
-	printf("dir y: %f\n", cub3d->player.dir.y); 
-	printf("cub3d->map[i][j]: %c\n", cub3d->map[i][j]);
 	if (cub3d->spawn == 'S')
-	{
 		rotate_vector(&cub3d->player.dir, PI);
-		printf("dir x: %f\n", cub3d->player.dir.x);
-		printf("dir y: %f\n", cub3d->player.dir.y); 
-	}
 	else if (cub3d->spawn == 'E')
 	{
 		rotate_vector(&cub3d->player.dir, PI / 2);
@@ -60,7 +53,7 @@ void	set_player_position(t_game *cub3d, int i, int j)
 				cub3d->player.pos.x = j + 0.5;
 				cub3d->player.pos.y = i + 0.5;
 				cub3d->map[i][j] = '0';
-				set_direction(cub3d, i, j);
+				set_direction(cub3d);
 				return ;
 			}
 		}

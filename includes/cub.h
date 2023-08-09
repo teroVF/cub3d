@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/09 22:02:16 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/09 22:07:34 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,8 +175,8 @@ int	        read_keys(int keypress, t_game *game);
 int         render_game(t_game *cub3d);
 
 // player_position.c
-void	rotate_vector(t_vector *v, double angle);
-void	set_direction(t_game *cub3d, int i, int j);
-void	set_player_position(t_game *cub3d, int i, int j);
+void		rotate_vector(t_vector *v, double angle);
+void		set_direction(t_game *cub3d);
+void		set_player_position(t_game *cub3d, int i, int j);
 
 #endif
