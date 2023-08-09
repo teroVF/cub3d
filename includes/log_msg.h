@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   log_msg.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 03:53:52 by antero            #+#    #+#             */
-/*   Updated: 2023/08/09 18:27:16 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/09 21:25:55 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@
 # define ERR_MAP_NSPAWN	"No spawn point"
 
 /* WINDOW SIZE*/
-# define WIN_W			320
-# define WIN_H			200
+# define WIN_W			1024
+# define WIN_H			 768
 
 /* STANDART PLAYER CAM*/
 # define STD_Y			-1;

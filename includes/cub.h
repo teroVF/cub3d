@@ -6,7 +6,7 @@
 /*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/09 01:54:24 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/09 21:16:34 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ typedef struct s_vector
     double  x;
     double  y;
 }			t_vector;
+
+typedef struct	s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
 
 typedef struct  s_position
 {
@@ -107,7 +115,8 @@ typedef struct s_game
 	char		spawn;
 	char		**map;
 	int			empty_line;
-    
+
+    t_data      frame;
 }			    t_game;
 
 // utils.c
@@ -154,9 +163,11 @@ void        calculate_delta(t_game *g);
 void        dda(t_game *g);
 void        calculate_distance(t_game *g);
 void        calculate_height_wall(t_game *game);
+int         create_background(t_game *g);
 
 //init
 int         end_game(t_game *game);
+void	    my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 
 //hooks
