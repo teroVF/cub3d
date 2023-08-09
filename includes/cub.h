@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/09 21:16:34 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/09 22:02:16 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,4 +173,10 @@ void	    my_mlx_pixel_put(t_data *data, int x, int y, int color);
 //hooks
 int	        read_keys(int keypress, t_game *game);
 int         render_game(t_game *cub3d);
+
+// player_position.c
+void	rotate_vector(t_vector *v, double angle);
+void	set_direction(t_game *cub3d, int i, int j);
+void	set_player_position(t_game *cub3d, int i, int j);
+
 #endif

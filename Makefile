@@ -17,7 +17,7 @@ RM = rm -fr
 #Sources
 FILES        =     	main render vector1 vector2 dda hooks \
 					utils parse parse_utils parse_map cub_init \
-					clean_exit raycasting
+					clean_exit raycasting player_position
 
 # BONUS_FILES	=		
 
