@@ -48,7 +48,7 @@ void render_collumn_pixel(t_game *cub3d)
         y = cub3d->player.tall_of_wall_y2;
         while (y < cub3d->player.tall_of_wall_y1)
         {
-            mlx_pixel_put(cub3d->mlx, cub3d->window, x, y, color);
+            my_mlx_pixel_put(&cub3d->frame, x, y, color);
             y++;
         }
         return ;
@@ -56,7 +56,7 @@ void render_collumn_pixel(t_game *cub3d)
     
     while (y < cub3d->player.tall_of_wall_y2)
     {
-        mlx_pixel_put(cub3d->mlx, cub3d->window, x, y, color);
+        my_mlx_pixel_put(&cub3d->frame, x, y, color);
         y++;
     }
 }
@@ -66,7 +66,7 @@ void calculate_current_ray(t_game *cub3d)
     double ray;
     t_vector ray_pixel;
     
-    ray = 2 * ((double)cub3d->pixel / (cub3d->game_w - 1)) - 1;
+    ray = 2 * ((double)cub3d->pixel / (cub3d->game_w - 1) * 2) - 1;
     ray_pixel = mult_vector(&cub3d->player.plane, ray);
     cub3d->player.ray_dir = add_vector(&cub3d->player.dir, &ray_pixel);
 }
@@ -74,6 +74,10 @@ void calculate_current_ray(t_game *cub3d)
 
 int rayscasting(t_game  *cub3d)
 {
+    cub3d->frame.img = mlx_new_image(cub3d->mlx, cub3d->game_w, cub3d->game_h);
+    cub3d->frame.addr = mlx_get_data_addr(cub3d->frame.img, &cub3d->frame.bits_per_pixel,
+        &cub3d->frame.line_length, &cub3d->frame.endian);
+    printf("aqui\n");
     create_background(cub3d);
     while (cub3d->pixel < cub3d->game_w)
     {
@@ -86,6 +90,7 @@ int rayscasting(t_game  *cub3d)
         render_collumn_pixel(cub3d);
         cub3d->pixel++;
     }
+    mlx_put_image_to_window(cub3d->mlx, cub3d->window, cub3d->frame.img, 0, 0);
     cub3d->pixel = 0;
     return (0);
 }

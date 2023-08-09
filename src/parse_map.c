@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 23:26:10 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/09 18:24:56 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/09 21:33:10 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ void	set_direction(t_game *cub3d, int i, int j)
 	{
 		rotate_vector(&cub3d->player.dir, -PI / 2);
 		cub3d->player.plane.x = STD_PLANE_Y;
-		cub3d->player.plane.y = STD_PLANE_X; 	
+		cub3d->player.plane.y = STD_PLANE_X;
 	}
 }
 
