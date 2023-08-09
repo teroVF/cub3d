@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 03:53:52 by antero            #+#    #+#             */
-/*   Updated: 2023/08/09 15:49:56 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/09 18:27:16 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,17 @@
 # define LOG_MSG__H
 
 /* COLORS */
-/* ONLY USE FOR DEBUGGING */
-# define DEF "\033[0;39m"
-# define GRAY "\033[0;90m"
-# define RED "\033[0;91m"
-# define GREEN "\033[0;92m"
-# define YELLOW "\033[0;93m"
-# define BLUE "\033[0;94m"
-# define MAGENTA "\033[0;95m"
-# define CYAN "\033[0;96m"
-# define WHITE "\033[0;97m"
+# define DEF			"\033[0;39m"
+# define GRAY			"\033[0;90m"
+# define RED			"\033[0;91m"
+# define GREEN			"\033[0;92m"
+# define YELLOW			"\033[0;93m"
+# define BLUE			"\033[0;94m"
+# define MAGENTA		"\033[0;95m"
+# define CYAN			"\033[0;96m"
+# define WHITE			"\033[0;97m"
 
-/* ERROR MESSAGES */
+/* SELECTORS */
 # define NO				0
 # define YES 			1
 
@@ -42,10 +41,12 @@
 # define FLOOR			5
 # define CEILING		6
 
+/* CHAR SETS */
 # define SPAWN_CHARS	"NSEW"
 # define VALID_CHARS	" 01NSEW"
 # define SPLIT_RGB		" ,"
 
+/* ERROR MESSAGES */
 # define ERR_ARGS		"Invalid number of arguments"
 
 # define ERR_CUB		"Invalid input file name"
@@ -72,31 +73,23 @@
 # define ERR_MAP_MSPAWN	"Multiple spawn points"
 # define ERR_MAP_NSPAWN	"No spawn point"
 
-/* CONFIG */
-#define WIN_W 320
-#define WIN_H 200
-#define PLANEX 0
-#define PLANEY 0.66
+/* WINDOW SIZE*/
+# define WIN_W			320
+# define WIN_H			200
 
-#define NORTH_Y = -1;
-#define NORTH_X = 0;
-#define NORTH_PLane_X = 0.66;
-#define NORTH_PLane_Y = 0;
-// #define SOUTH_Y = 1;
-// #define SOUTH_X = 0;
-// #define SOUTH_PLane_X = -0.66;
-// #define EAST_Y = 0;
-// #define EAST_X = 1;
-// #define EAST_PLane_Y = 0.66;
-// #define WEST_Y = 0;
-// #define WEST_X = -1;
+/* STANDART PLAYER CAM*/
+# define STD_Y			-1;
+# define STD_X			0;
+# define STD_PLANE_X	0.66;
+# define STD_PLANE_Y	0;
 
 /* KEYS */
-#define KEY_ESC 65307
-#define LEFT 65361
-#define RIGHT 65363
-#define W 119
-#define A 97
-#define S 115
-#define D 100
+# define KEY_ESC		65307
+# define LEFT			65361
+# define RIGHT			65363
+# define W				119
+# define A				97
+# define S				115
+# define D				100
+
 #endif

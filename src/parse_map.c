@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 23:26:10 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/09 16:02:52 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/09 18:24:56 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,29 +97,41 @@ void	parse_map_line(t_game *cub3d, char *line)
 	}
 }
 
-// void	set_direction(t_game *cub3d, int i, int j)
-// {
-// 	cub3d->player.dir.x = 	NORTH_X
-// 	cub3d->player.dir.y =   NORTH_Y
-// 	cub3d->player.plane.x = NORTH_PLane_X
-// 	cub3d->player.plane.y = NORTH_PLane_Y
-// 	if (cub3d->map[i][j] == 'S')
-// 		cub3d->player.dir= mult_vector(cub3d->player.dir, -1);
-// 	else if (cub3d->map[i][j] == 'W')
-// 	{
-// 		cub3d->player.dir.x = NORTH_PLane_X
-// 		cub3d->player.dir.y = NORTH_PLane_Y
-// 		cub3d->player.plane.x = NORTH_X
-// 		cub3d->player.plane.y = NORTH_Y
-// 	}
-// 	else if (cub3d->map[i][j] == 'W')
-// 	{
-// 		cub3d->player.dir.x = NORTH_PLane_X * -1
-// 		cub3d->player.dir.y = NORTH_PLane_Y * -1
-// 		cub3d->player.plane.x = NORTH_X * -1
-// 		cub3d->player.plane.y = NORTH_Y * -1
-// 	}
-// }
+void	rotate_vector(t_vector *v, double angle)
+{
+	double	x;
+	double	y;
+
+	x = v->x;
+	y = v->y;
+	v->x = x * cos(angle) - y * sin(angle);
+	v->y = x * sin(angle) + y * cos(angle);
+}
+
+void	set_direction(t_game *cub3d, int i, int j)
+{
+	printf("dir x: %f\n", cub3d->player.dir.x);
+	printf("dir y: %f\n", cub3d->player.dir.y); 
+	printf("cub3d->map[i][j]: %c\n", cub3d->map[i][j]);
+	if (cub3d->spawn == 'S')
+	{
+		rotate_vector(&cub3d->player.dir, PI);
+		printf("dir x: %f\n", cub3d->player.dir.x);
+		printf("dir y: %f\n", cub3d->player.dir.y); 
+	}
+	else if (cub3d->spawn == 'E')
+	{
+		rotate_vector(&cub3d->player.dir, PI / 2);
+		cub3d->player.plane.x = STD_PLANE_Y;
+		cub3d->player.plane.y = STD_PLANE_X;
+	}
+	else if (cub3d->spawn == 'W')
+	{
+		rotate_vector(&cub3d->player.dir, -PI / 2);
+		cub3d->player.plane.x = STD_PLANE_Y;
+		cub3d->player.plane.y = STD_PLANE_X; 	
+	}
+}
 
 void	set_player_position(t_game *cub3d, int i, int j)
 {
@@ -133,7 +145,6 @@ void	set_player_position(t_game *cub3d, int i, int j)
 				cub3d->player.pos.x = j + 0.5;
 				cub3d->player.pos.y = i + 0.5;
 				cub3d->map[i][j] = '0';
-				printf("player: %f,%f\n", cub3d->player.pos.x, cub3d->player.pos.y);
 				set_direction(cub3d, i, j);
 				return ;
 			}

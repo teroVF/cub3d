@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 09:44:54 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/09 15:27:46 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/09 18:59:52 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,10 @@ void	convert_int_bit_to_rgb(t_game *cub3d, int r, int g, int b)
 
 void init_player(t_player *player)
 {
-    // player->pos.x = 2;
-    // player->pos.y = 2;
-    player->dir.x = 0;
-    player->dir.y = -1;
-    player->plane.x = 0;
-    player->plane.y = 0.66;
+    player->dir.x = STD_X;
+    player->dir.y = STD_Y;
+    player->plane.x = STD_PLANE_X;
+    player->plane.y = STD_PLANE_Y;
     // player->move_speed = 0.05;
     // player->rot_speed = 0.05;
 }
