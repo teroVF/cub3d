@@ -37,8 +37,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/antero/Desktop/42/cub3d",
-      "program": "/home/antero/Desktop/42/cub3d/build/Debug/outDebug",
+      "cwd": "/nfs/homes/anvieira/Desktop/Ccore/cub3d",
+      "program": "/nfs/homes/anvieira/Desktop/Ccore/cub3d/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

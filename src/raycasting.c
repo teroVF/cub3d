@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   raycastingub3d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 04:39:10 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/08 04:13:28 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/09 01:09:25 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,88 +27,78 @@
 // 		{'1', '1', '1', '1', '1', '1', '1', '1', '1', '1'}  //9
 // 	};
 
-void render_collumn_pixel(t_game *g)
+void render_collumn_pixel(t_game *cub3d)
 {
     int x;
     int y;
     int color;
 
-    y = g->player.tall_of_wall_y1;
-    x = g->pixel;
+    y = cub3d->player.tall_of_wall_y1;
+    x = cub3d->pixel;
     //red
     int color1 = 0x00FF0000;
     //dark red
     int color2 = 0x00B20000;
-    if (g->player.hit_side == 1)
+    if (cub3d->player.hit_side == 1)
         color = color1;
     else
         color = color2;
-    if (g->player.tall_of_wall_y1 > g->player.tall_of_wall_y2)
+    if (cub3d->player.tall_of_wall_y1 > cub3d->player.tall_of_wall_y2)
     {
-        y = g->player.tall_of_wall_y2;
-        while (y < g->player.tall_of_wall_y1)
+        y = cub3d->player.tall_of_wall_y2;
+        while (y < cub3d->player.tall_of_wall_y1)
         {
-            mlx_pixel_put(g->mlx, g->window, x, y, color);
+            mlx_pixel_put(cub3d->mlx, cub3d->window, x, y, color);
             y++;
         }
         return ;
     }
     
-    while (y < g->player.tall_of_wall_y2)
+    while (y < cub3d->player.tall_of_wall_y2)
     {
-        mlx_pixel_put(g->mlx, g->window, x, y, color);
+        mlx_pixel_put(cub3d->mlx, cub3d->window, x, y, color);
         y++;
     }
 }
 
-void calculate_current_ray(t_game *g)
+void calculate_current_ray(t_game *cub3d)
 {
     double ray;
     t_vector ray_pixel;
     
-    ray = 2 * ((double)g->pixel / (g->game_w - 1)) - 1;
-    ray_pixel = mult_vector(&g->player.plane, ray);
-    g->player.ray_dir = add_vector(&g->player.dir, &ray_pixel);
+    ray = 2 * ((double)cub3d->pixel / (cub3d->game_w - 1)) - 1;
+    ray_pixel = mult_vector(&cub3d->player.plane, ray);
+    cub3d->player.ray_dir = add_vector(&cub3d->player.dir, &ray_pixel);
 }
 
 
-int rayscasting(t_game  *g)
+int rayscasting(t_game  *cub3d)
 {
-    create_background(g);
-    while (g->pixel < g->game_w)
+    create_background(cub3d);
+    while (cub3d->pixel < cub3d->game_w)
     {
-        map_position_square(&g->player);
-        calculate_current_ray(g);
-        calculate_delta(g);   
-        dda(g);
-        calculate_distance(g);
-        calculate_height_wall(g);
-        render_collumn_pixel(g);
-        g->pixel++;
+        map_position_square(&cub3d->player);
+        calculate_current_ray(cub3d);
+        calculate_delta(cub3d);   
+        dda(cub3d);
+        calculate_distance(cub3d);
+        calculate_height_wall(cub3d);
+        render_collumn_pixel(cub3d);
+        cub3d->pixel++;
     }
-    g->pixel = 0;
+    cub3d->pixel = 0;
     return (0);
 }
 
 
-int main(void)
+int render_game(t_game *cub3d)
 {
-    t_game g;
-    ft_memset(&g, 0, sizeof(t_game));
-    game_init(&g);
-    g.mlx = mlx_init();
-    g.window = mlx_new_window(g.mlx, g.game_w, g.game_h, "Cub3D");
-    g.color_floor = 0x5ED41D;
-    g.color_ceiling = 0x5ED4E1;
-    g.player.pos.x = 5;
-    g.player.pos.y = 5;
-    g.player.dir.y = -1;
-    g.player.dir.x =  0;
-    g.player.plane.x = 0.66;
-    g.player.plane.y = 0;
-    rayscasting(&g);
-    mlx_key_hook(g.window, read_keys, &g);
-    mlx_hook(g.window, 17, 1L << 0, end_game, &g);
-    mlx_loop(g.mlx);
+    cub3d->mlx = mlx_init();
+    cub3d->window = mlx_new_window(cub3d->mlx,
+        cub3d->game_w, cub3d->game_h, "Cub3D");
+    rayscasting(cub3d);
+    mlx_key_hook(cub3d->window, read_keys, cub3d);
+    mlx_hook(cub3d->window, 17, 1L << 0, end_game, cub3d);
+    mlx_loop(cub3d->mlx);
     return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 04:19:05 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/06 15:43:54 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/09 01:33:59 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void dda(t_game *g)
             // printf("map: %c\n", map[g->player.map_square.y][g->player.map_square.x]);
             
         }
-        if (map[g->player.map_square.y][g->player.map_square.x] == '1')
+        if (g->map[g->player.map_square.y][g->player.map_square.x] == '1')
             hit = 1;
     }
     // printf("hit_side: %d\n", g->player.hit_side);

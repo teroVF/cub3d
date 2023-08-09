@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 03:22:44 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/06 17:34:13 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/09 02:34:29 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static inline int create_floor(t_game *g)
         x = 0;
         while (x < g->game_w)
         {
-            mlx_pixel_put(g->mlx, g->window, x, y, g->color_floor);
+            mlx_pixel_put(g->mlx, g->window, x, y, g->floor);
             x++;
         }
         y++;
@@ -45,7 +45,7 @@ static inline int create_ceiling(t_game *g)
         x = 0;
         while (x < g->game_w)
         {
-            mlx_pixel_put(g->mlx, g->window, x, y, g->color_ceiling);
+            mlx_pixel_put(g->mlx, g->window, x, y, g->ceiling);
             x++;
         }
         y++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:36:31 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/06/22 17:37:14 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/04 16:19:55 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
-
-# define MAX_FILES 10000
 
 typedef struct s_list
 {
@@ -54,6 +52,7 @@ int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_isset(int c, char *set);
+int		ft_isspace(int c);
 size_t	ft_strlen(const char *s);
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
@@ -77,6 +76,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
+int		ft_count_words(const char *s, char c);
+int		count_words(char *str, char *sep);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
@@ -140,10 +141,6 @@ int		ft_precision_nbr(t_flags *flags, int n);
 int		ft_precision_others(int n, t_flags *flags, int hex);
 
 char	*get_next_line(int fd);
-size_t	strlen_at(const char *s, int c);
-char	*cpy_buffer(const char *s, size_t n);
-char	*find_chr(const char *s, int c);
-char	*merge_previous_and_current(char *s1, char const *s2);
 char	**ft_split2(char *str, char *charset);
 
 #endif

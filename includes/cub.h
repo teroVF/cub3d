@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/08 18:27:43 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/09 01:54:24 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,9 +156,10 @@ void        calculate_distance(t_game *g);
 void        calculate_height_wall(t_game *game);
 
 //init
-int         game_init(t_game *g)
 int         end_game(t_game *game);
+
 
 //hooks
 int	        read_keys(int keypress, t_game *game);
+int         render_game(t_game *cub3d);
 #endif

@@ -40,57 +40,32 @@ WHITE = \033[0;97m
 all: $(NAME)
 
 #MANDATORY
-$(NAME):	$(LIBFT) $(MINILIBX) $(CUB3D_OBJ)
-			
-			@echo "$(YELLOW) Compiling: $@ $(DEF_COLOR)"
-			@$(CC) $(INCS) $(CFLAGS) -O3 $(CUB3D_OBJ) $(LIB) -o $@
+$(NAME):			$(LIBFT) $(MLX) $(CUB3D_OBJ)
+						@echo "$(YELLOW) Compiling: $@ $(DEF_COLOR)"
+						@$(CC) $(INCS) $(CFLAGS) -O3 $(CUB3D_OBJ) $(LIB) -o $@
 
 $(OBJ_PATH)%.o:		$(SRC_PATH)%.c
-			@mkdir -p $(OBJ_PATH)
-			@echo "$(YELLOW) Compiling: $< $(DEF_COLOR)"
-			@$(CC) $(INCS) $(CFLAGS) -c $< -o $@
+						@mkdir -p $(OBJ_PATH)
+						@echo "$(YELLOW) Compiling: $< $(DEF_COLOR)"
+						@$(CC) $(INCS) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
-			@make -C ./lib/libft
+						@make -C ./lib/libft
 
-$(MINILIBX):
-			@make -C ./lib/mlx
-
-# PERF:		fclean $(PHILO_OBJ)
-# 			@echo "$(YELLOW) Compiling: $@ $(DEF_COLOR)"
-# 			@$(CC) $(INCS) $(CFLAGS) $(PERFORMANCE) $(PHILO_OBJ) -o $(NAME)
-
-# debug:		fclean $(PHILO_OBJ)
-# 			@echo "$(YELLOW) Compiling: $@ $(DEF_COLOR)"
-# 			@$(CC) $(INCS) $(CFLAGS) $(DEBUG) $(PHILO_OBJ) -o $(NAME)
-
-# debug_t:	fclean $(PHILO_OBJ)
-# 			@echo "$(YELLOW) Compiling: $@ $(DEF_COLOR)"
-# 			@$(CC) $(INCS) $(CFLAGS) $(DEBUG_T) $(PHILO_OBJ) -o $(NAME)
-
-# size: 
-# 			@echo "$(YELLOW)Size of the executable:$(DEF_COLOR)"
-# 			@wc -c $(NAME) | echo `awk '{print $$1}'` bytes
-
-# assemble:
-# 			@echo "$(YELLOW)Assembling:$(DEF_COLOR)"
-# 			@objdump -d $(NAME) > $(NAME).s
-
-# assemble_s:
-# 			@echo "$(YELLOW)Assembling:$(DEF_COLOR)"
-# 			@objdump -d $(NAME) | wc -l
+$(MLX):
+						@make -C ./lib/mlx
 
 clean:
-			@$(RM) $(OBJ_PATH)
-			@echo "$(BLUE)All objects files cleaned!$(DEF_COLOR)"
+						@$(RM) $(OBJ_PATH)
+						@echo "$(BLUE)All objects files cleaned!$(DEF_COLOR)"
 
-fclean: 	clean
-			@$(RM) $(NAME)
-			@make -C ./lib/libft/ fclean
-			@make -C ./lib/mlx/ clean
-			@echo "$(CYAN)All executable files cleaned!$(DEF_COLOR)"
+fclean: 			clean
+						@$(RM) $(NAME)
+						@make -C ./lib/libft/ fclean
+						@make -C ./lib/mlx/ clean
+						@echo "$(CYAN)All executable files cleaned!$(DEF_COLOR)"
 
-re: 		fclean all
-			@echo "$(GREEN)Cleaned and rebuilt everything$(DEF_COLOR)"
+re: 				fclean all
+						@echo "$(GREEN)Cleaned and rebuilt everything$(DEF_COLOR)"
 
-.PHONY: 	fclean all re clean
+.PHONY: 			fclean all re clean

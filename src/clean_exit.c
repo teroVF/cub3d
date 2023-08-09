@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   clean_exit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 11:28:49 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/04 00:30:39 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/09 01:50:56 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../includes/cub.h"
 
 void	clean_game(t_game *cub3d)
 {

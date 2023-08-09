@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 09:44:54 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/08 04:16:02 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/09 01:06:35 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,18 @@ void	convert_int_bit_to_rgb(t_game *cub3d, int r, int g, int b)
 	printf("ceiling: %d,%d,%d\n", r, g, b);
 }
 
+void init_player(t_player *player)
+{
+    player->pos.x = 2;
+    player->pos.y = 2;
+    player->dir.x = 0;
+    player->dir.y = -1;
+    player->plane.x = 0;
+    player->plane.y = 0.66;
+    // player->move_speed = 0.05;
+    // player->rot_speed = 0.05;
+}
+
 void	init_game(t_game *cub3d)
 {
 	// ft_bzero(cub3d, sizeof(t_game));
@@ -39,6 +51,9 @@ void	init_game(t_game *cub3d)
 	cub3d->start_map = NO;
 	cub3d->temp_map = NULL;
 	cub3d->empty_line = NO;
+    cub3d->game_h = WIN_H;
+    cub3d->game_w = WIN_W;
+    init_player(&cub3d->player);
 }
 
 void	launch_game(char *file)
@@ -47,6 +62,7 @@ void	launch_game(char *file)
 	ft_memset(&cub3d, 0, sizeof(t_game));
 	init_game(&cub3d);
 	parse_file(&cub3d, file);
+    render_game(&cub3d);
 	quit_game(&cub3d);
 }
 
