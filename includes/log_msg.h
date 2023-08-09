@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   log_msg.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 03:53:52 by antero            #+#    #+#             */
-/*   Updated: 2023/08/09 21:25:55 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/09 22:35:52 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LOG_MSG__H
-# define LOG_MSG__H
+#ifndef LOG_MSG_H
+# define LOG_MSG_H
 
 /* COLORS */
 # define DEF			"\033[0;39m"
