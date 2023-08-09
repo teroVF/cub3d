@@ -6,10 +6,9 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 04:39:10 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/09 22:16:38 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/09 22:22:34 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../includes/cub.h"
 
@@ -36,9 +35,9 @@ void	render_collumn_pixel(t_game *cub3d)
 	y = cub3d->player.tall_of_wall_y1;
 	x = cub3d->pixel;
 	//red
-	int color1 = 0x00FF0000;
+	int	color1 = 0x00FF0000;
 	//dark red
-	int color2 = 0x00B20000;
+	int	color2 = 0x00B20000;
 	if (cub3d->player.hit_side == 1)
 		color = color1;
 	else
@@ -69,7 +68,6 @@ void	calculate_current_ray(t_game *cub3d)
 	ray_pixel = mult_vector(&cub3d->player.plane, ray);
 	cub3d->player.ray_dir = add_vector(&cub3d->player.dir, &ray_pixel);
 }
-
 
 int	rayscasting(t_game *cub3d)
 {
