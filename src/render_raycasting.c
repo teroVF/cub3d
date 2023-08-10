@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycasting.c                                       :+:      :+:    :+:   */
+/*   render_raycasting.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 04:39:10 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 11:28:42 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 14:02:27 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ void	calculate_current_ray(t_game *cub3d)
 
 int	rayscasting(t_game *cub3d)
 {
+	if (cub3d->frame.img)
+		mlx_destroy_image(cub3d->mlx, cub3d->frame.img);
 	cub3d->frame.img = mlx_new_image(cub3d->mlx, cub3d->game_w, cub3d->game_h);
 	cub3d->frame.addr = mlx_get_data_addr(cub3d->frame.img, \
 		&cub3d->frame.bits_per_pixel, &cub3d->frame.line_length, \

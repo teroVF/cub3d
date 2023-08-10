@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dda.c                                              :+:      :+:    :+:   */
+/*   calc_dda.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 04:19:05 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 11:34:39 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 14:05:30 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ void	dda(t_game *g)
 			// printf("map_square.y: %d\n", g->player.map_square.y);
 			// printf("bateu em que lado: %d\n", g->player.hit_side);
 			// printf("map: %c\n", map[g->player.map_square.y][g->player.map_square.x]);
-			
 		}
 		if (g->map[g->player.map_square.y][g->player.map_square.x] == '1')
 			hit = 1;
