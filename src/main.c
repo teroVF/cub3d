@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 09:44:54 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/10 16:42:53 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 20:43:29 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,17 @@ void	init_game(t_game *cub3d)
 	cub3d->start_map = NO;
 	cub3d->temp_map = NULL;
 	cub3d->empty_line = NO;
-	cub3d->game_h = WIN_H;
-	cub3d->game_w = WIN_W;
 	init_player(&cub3d->player);
+}
+
+void	get_screen_size(t_game *cub3d, void	*tmp_mlx, void	*tmp_win)
+{
+	tmp_mlx = mlx_init();
+	tmp_win = mlx_new_window(tmp_mlx, 1, 1, "tmp");
+	mlx_get_screen_size(tmp_mlx, &cub3d->game_w, &cub3d->game_h);
+	mlx_destroy_window(tmp_mlx, tmp_win);
+	mlx_destroy_display(tmp_mlx);
+	free(tmp_mlx);
 }
 
 void	launch_game(char *file)
@@ -46,6 +54,7 @@ void	launch_game(char *file)
 	ft_memset(&cub3d, 0, sizeof(t_game));
 	init_game(&cub3d);
 	parse_file(&cub3d, file);
+	get_screen_size(&cub3d, NULL, NULL);
 	render_game(&cub3d);
 }
 
