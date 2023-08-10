@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 00:50:24 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 15:12:31 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 15:20:51 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	move_positiony(t_game *game, t_vector *dir, int direction)
 	printf("FIM\n");
 }
 
-void	rotate_right(t_game *game)
+void	rotate_left(t_game *game)
 {
 	t_player	*p;
 	double		olddirx;
@@ -71,7 +71,7 @@ void	rotate_right(t_game *game)
 	rayscasting(game);
 }
 
-void	rotate_left(t_game *game)
+void	rotate_right(t_game *game)
 {
 	t_player	*p;
 	double		olddirx;
