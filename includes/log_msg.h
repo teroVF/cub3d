@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 03:53:52 by antero            #+#    #+#             */
-/*   Updated: 2023/08/10 11:09:15 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 14:43:29 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@
 # define ERR_MAP_NSPAWN	"No spawn point"
 
 /* WINDOW SIZE*/
-# define WIN_W			1920
-# define WIN_H			1080
+# define WIN_W			1230
+# define WIN_H			768
 
 /* STANDART PLAYER CAM*/
 # define STD_Y			-1;
