@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 12:02:02 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 12:05:12 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,11 @@ int			render_game(t_game *cub3d);
 void		my_mlx_pixel_put(t_game *game, int x, int y, int color);
 int			create_background(t_game *g);
 
-//hooks
+/* HOOKS.C */
+void		move_positionx(t_game *game, t_vector *dir, int direction);
+void		move_positiony(t_game *game, t_vector *dir, int direction);
+void		rotate_right(t_game *game);
+void		rotate_left(t_game *game);
 int			read_keys(int keypress, t_game *game);
 
 /* CLEAN_EXIT.C */
