@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 00:50:24 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 11:20:51 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 15:12:31 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,17 +94,14 @@ int	read_keys(int keypress, t_game *game)
 	printf("key: %d\n", keypress);
 	if (keypress == KEY_ESC)
 		end_game(game);
-	if (keypress == A)
-		move_positionx(game, &game->player.dir, 1);
-	if (keypress == D)
-	{
-		printf("entro\n");
-		move_positionx(game, &game->player.dir, -1);
-	}
 	if (keypress == W)
 		move_positiony(game, &game->player.dir, 1);
 	if (keypress == S)
 		move_positiony(game, &game->player.dir, -1);
+	if (keypress == A)
+		move_positionx(game, &game->player.dir, -1);
+	if (keypress == D)
+		move_positionx(game, &game->player.dir, 1);
 	if (keypress == LEFT)
 		rotate_left(game);
 	if (keypress == RIGHT)
