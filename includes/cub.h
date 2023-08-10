@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 13:48:49 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 13:54:45 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,7 +175,7 @@ int			read_keys(int keypress, t_game *game);
 /* CLEAN_EXIT.C */
 int			exit_error(t_game *cub3d, char *msg);
 void		free_split(char **split);
-void		clean_game(t_game *cub3d);
+void		clean_parse(t_game *cub3d);
 int			end_game(t_game *game);
 
 #endif

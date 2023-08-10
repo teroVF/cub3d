@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 11:28:49 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/10 13:48:23 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 13:54:45 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ void	free_split(char **split)
 
 int	exit_error(t_game *cub3d, char *msg)
 {
-	clean_game(cub3d);
+	clean_parse(cub3d);
 	ft_putstr_fd("Error\n", 2);
 	ft_putstr_fd(msg, 2);
 	ft_putstr_fd("\n", 2);
 	exit (EXIT_FAILURE);
 }
 
-void	clean_game(t_game *cub3d)
+void	clean_parse(t_game *cub3d)
 {
 	if (!cub3d)
 		return ;
@@ -55,9 +55,10 @@ void	clean_game(t_game *cub3d)
 
 int	end_game(t_game *game)
 {
+	mlx_destroy_image(game->mlx, game->frame.img);
 	mlx_destroy_window(game->mlx, game->window);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
-	clean_game(game);
+	clean_parse(game);
 	exit(EXIT_SUCCESS);
 }
