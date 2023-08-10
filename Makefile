@@ -18,7 +18,7 @@ RM = rm -fr
 FILES = main \
 		parse parse_utils parse_map set_player \
 		calc_vector1 calc_vector2 calc_dda \
-		render raycasting\
+		render_raycasting render_utils \
 		hooks clean_exit  
 
 # BONUS_FILES	=		

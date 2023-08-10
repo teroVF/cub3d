@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 11:54:43 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 12:02:02 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,6 @@ typedef struct s_game
 	t_data		frame;
 }				t_game;
 
-
-
 /* PARSE.C */
 void		parse_file(t_game *cub3d, char *file);
 void		parse_line(t_game *cub3d, char *line, int i);
@@ -140,9 +138,6 @@ void		rotate_vector(t_vector *v, double angle);
 void		set_direction(t_game *cub3d);
 void		set_player_position(t_game *cub3d, int i, int j);
 
-//render
-int			create_background(t_game *g);
-
 /* CALC_DDA.C */
 void		calculate_delta(t_game *g);
 void		dda(t_game *g);
@@ -160,16 +155,18 @@ double		perpendicular_dist_y(t_player *p, int step_y);
 double		dist_to_wall_y(t_player *p);
 double		dist_to_wall_x(t_player *p);
 
-// raycasting
+/* RENDER_RAYCASTING.C */
+void		render_collumn_pixel(t_game *cub3d);
+void		calculate_current_ray(t_game *cub3d);
 int			rayscasting(t_game *g);
-int			create_background(t_game *g);
+int			render_game(t_game *cub3d);
 
-//init
+/* RENDER_UTILS.C */
 void		my_mlx_pixel_put(t_game *game, int x, int y, int color);
+int			create_background(t_game *g);
 
 //hooks
 int			read_keys(int keypress, t_game *game);
-int			render_game(t_game *cub3d);
 
 /* CLEAN_EXIT.C */
 int			exit_error(t_game *cub3d, char *msg);
