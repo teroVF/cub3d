@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 11:10:50 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 11:20:05 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ void		free_split(char **split);
 // clean_exit.c
 int			quit_game(t_game *cub3d);
 void		clean_game(t_game *cub3d);
+int			end_game(t_game *game);
 
 // parse.c
 void		parse_file(t_game *cub3d, char *file);
@@ -160,7 +161,6 @@ void		calculate_height_wall(t_game *game);
 int			create_background(t_game *g);
 
 //init
-int			end_game(t_game *game);
 void		my_mlx_pixel_put(t_game *game, int x, int y, int color);
 
 //hooks

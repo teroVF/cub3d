@@ -3,14 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   clean_exit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 11:28:49 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/09 01:50:56 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/10 11:19:25 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub.h"
+
+int	end_game(t_game *game)
+{
+	mlx_destroy_window(game->mlx, game->window);
+	exit(EXIT_SUCCESS);
+}
 
 void	clean_game(t_game *cub3d)
 {

@@ -6,22 +6,22 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 19:58:34 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/09 21:41:25 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 11:16:50 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub.h"
 
+//return (fabs(mag_vector(vector) / vector->x)); dividir por mag vector da 0
 static double	delta_x(t_vector *vector)
 {
-	//return (fabs(mag_vector(vector) / vector->x)); dividir por mag vector da 0
 	return (1 / vector->x);
 }
 
 //tem de ser absoluto porque o delta eh sempre positivo. vr no fim
+//return (fabs(mag_vector(vector) / vector->y)); dividir por mag vector da 0
 static double	delta_y(t_vector *vector)
 {
-	//return (fabs(mag_vector(vector) / vector->y)); dividir por mag vector da 0
 	return (1 / vector->y);
 }
 

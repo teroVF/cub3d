@@ -3,27 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 00:50:24 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 02:43:04 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/10 11:20:51 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub.h"
-
-int	end_game(t_game *game)
-{
-	mlx_destroy_window(game->mlx, game->window);
-	exit(EXIT_SUCCESS);
-}
 
 void	move_positionx(t_game *game, t_vector *dir, int direction)
 {
 	t_player	*p;
 	double		speed;
 	t_vector	temp;
-	
+
 	temp.x = dir->x;
 	temp.y = dir->y;
 	rotate_vector(&temp, PI / 2);
@@ -44,7 +38,7 @@ void	move_positiony(t_game *game, t_vector *dir, int direction)
 {
 	t_player	*p;
 	double		speed;
-	
+
 	speed = 0.2;
 	p = &game->player;
 	p->pos.y += speed * dir->y * direction;
@@ -76,6 +70,7 @@ void	rotate_right(t_game *game)
 	p->plane.y = oldplanex * sin(-rot_speed) + p->plane.y * cos(-rot_speed);
 	rayscasting(game);
 }
+
 void	rotate_left(t_game *game)
 {
 	t_player	*p;
