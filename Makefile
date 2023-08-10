@@ -16,7 +16,7 @@ RM = rm -fr
 
 #Sources
 FILES = main \
-		utils parse parse_utils parse_map player_position \
+		parse parse_utils parse_map set_player \
 		calc_vector1 calc_vector2 calc_dda \
 		render raycasting\
 		hooks clean_exit  

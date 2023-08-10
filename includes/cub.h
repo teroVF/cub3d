@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 11:47:55 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 11:54:43 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,34 +113,32 @@ typedef struct s_game
 	t_data		frame;
 }				t_game;
 
-// utils.c
-int			exit_error(t_game *cub3d, char *msg);
-void		free_split(char **split);
 
-// clean_exit.c
-int			quit_game(t_game *cub3d);
-void		clean_game(t_game *cub3d);
-int			end_game(t_game *game);
 
-// parse.c
+/* PARSE.C */
 void		parse_file(t_game *cub3d, char *file);
 void		parse_line(t_game *cub3d, char *line, int i);
 void		check_color(t_game *cub3d, char *color, int face);
 void		check_texture(t_game *cub3d, char *file, int face);
 
-// parse_utils.c
+/* PARSE_UTILS.C */
 int			have_numbers(char *str);
 int			have_all_params(t_game *cub3d);
 void		check_filename(t_game *cub3d, char *file, int mode);
 void		check_texture_file(t_game *cub3d, char *file, int fd);
 char		*get_value(char *line, int i, int mode);
 
-// parse_map.c
+/* PARSE_MAP.C */
 void		parse_map(t_game *cub3d, int fd);
 int			is_surrounded_by_walls(t_game *cub3d, int direction, int i, int j);
 void		check_map(t_game *cub3d, int i, int j);
 void		parse_map_line(t_game *cub3d, char *line);
 int			is_empty_line(t_game *cub3d, char *line);
+
+/* SET_PLAYER.C */
+void		rotate_vector(t_vector *v, double angle);
+void		set_direction(t_game *cub3d);
+void		set_player_position(t_game *cub3d, int i, int j);
 
 //render
 int			create_background(t_game *g);
@@ -173,9 +171,11 @@ void		my_mlx_pixel_put(t_game *game, int x, int y, int color);
 int			read_keys(int keypress, t_game *game);
 int			render_game(t_game *cub3d);
 
-// player_position.c
-void		rotate_vector(t_vector *v, double angle);
-void		set_direction(t_game *cub3d);
-void		set_player_position(t_game *cub3d, int i, int j);
+/* CLEAN_EXIT.C */
+int			exit_error(t_game *cub3d, char *msg);
+void		free_split(char **split);
+int			quit_game(t_game *cub3d);
+void		clean_game(t_game *cub3d);
+int			end_game(t_game *game);
 
 #endif
