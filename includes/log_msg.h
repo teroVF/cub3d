@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 03:53:52 by antero            #+#    #+#             */
-/*   Updated: 2023/08/10 16:48:36 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 17:14:35 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,9 @@
 # define ZERO			0;
 # define PLANE			0.66;
 
-/* CONTROLS */
-# define SPEED 0.2
+/* CONTROLS SPEED */
+# define MOV			0.2
+# define ROT			0.1
 
 /* KEYS */
 # define KEY_ESC		65307

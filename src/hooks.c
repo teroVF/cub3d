@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 00:50:24 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 15:20:51 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 17:15:22 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,18 @@
 void	move_positionx(t_game *game, t_vector *dir, int direction)
 {
 	t_player	*p;
-	double		speed;
 	t_vector	temp;
 
 	temp.x = dir->x;
 	temp.y = dir->y;
 	rotate_vector(&temp, PI / 2);
-	speed = 0.2;
 	p = &game->player;
-	p->pos.y += speed * temp.y * direction;
-	p->pos.x += speed * temp.x * direction;
+	p->pos.y += MOV * temp.y * direction;
+	p->pos.x += MOV * temp.x * direction;
 	if (game->map[(int)p->pos.y][(int)p->pos.x] == '1')
 	{
-		p->pos.y -= speed * temp.y * direction;
-		p->pos.x -= speed * temp.x * direction;
+		p->pos.y -= MOV * temp.y * direction;
+		p->pos.x -= MOV * temp.x * direction;
 		return ;
 	}
 	rayscasting(game);
@@ -37,20 +35,17 @@ void	move_positionx(t_game *game, t_vector *dir, int direction)
 void	move_positiony(t_game *game, t_vector *dir, int direction)
 {
 	t_player	*p;
-	double		speed;
 
-	speed = 0.2;
 	p = &game->player;
-	p->pos.y += speed * dir->y * direction;
-	p->pos.x += speed * dir->x * direction;
+	p->pos.y += MOV * dir->y * direction;
+	p->pos.x += MOV * dir->x * direction;
 	if (game->map[(int)p->pos.y][(int)p->pos.x] == '1')
 	{
-		p->pos.y -= speed * dir->y * direction;
-		p->pos.x -= speed * dir->x * direction;
+		p->pos.y -= MOV * dir->y * direction;
+		p->pos.x -= MOV * dir->x * direction;
 		return ;
 	}
 	rayscasting(game);
-	printf("FIM\n");
 }
 
 void	rotate_left(t_game *game)
@@ -58,16 +53,14 @@ void	rotate_left(t_game *game)
 	t_player	*p;
 	double		olddirx;
 	double		oldplanex;
-	double		rot_speed;
 
-	rot_speed = 0.1;
 	p = &game->player;
 	olddirx = p->dir.x;
-	p->dir.x = p->dir.x * cos(rot_speed) - p->dir.y * sin(-rot_speed);
-	p->dir.y = olddirx * sin(-rot_speed) + p->dir.y * cos(-rot_speed);
+	p->dir.x = p->dir.x * cos(ROT) - p->dir.y * sin(-ROT);
+	p->dir.y = olddirx * sin(-ROT) + p->dir.y * cos(-ROT);
 	oldplanex = p->plane.x;
-	p->plane.x = p->plane.x * cos(-rot_speed) - p->plane.y * sin(-rot_speed);
-	p->plane.y = oldplanex * sin(-rot_speed) + p->plane.y * cos(-rot_speed);
+	p->plane.x = p->plane.x * cos(-ROT) - p->plane.y * sin(-ROT);
+	p->plane.y = oldplanex * sin(-ROT) + p->plane.y * cos(-ROT);
 	rayscasting(game);
 }
 
@@ -76,16 +69,14 @@ void	rotate_right(t_game *game)
 	t_player	*p;
 	double		olddirx;
 	double		oldplanex;
-	double		rot_speed;
 
-	rot_speed = 0.1;
 	p = &game->player;
 	olddirx = p->dir.x;
-	p->dir.x = p->dir.x * cos(rot_speed) - p->dir.y * sin(rot_speed);
-	p->dir.y = olddirx * sin(rot_speed) + p->dir.y * cos(rot_speed);
+	p->dir.x = p->dir.x * cos(ROT) - p->dir.y * sin(ROT);
+	p->dir.y = olddirx * sin(ROT) + p->dir.y * cos(ROT);
 	oldplanex = p->plane.x;
-	p->plane.x = p->plane.x * cos(rot_speed) - p->plane.y * sin(rot_speed);
-	p->plane.y = oldplanex * sin(rot_speed) + p->plane.y * cos(rot_speed);
+	p->plane.x = p->plane.x * cos(ROT) - p->plane.y * sin(ROT);
+	p->plane.y = oldplanex * sin(ROT) + p->plane.y * cos(ROT);
 	rayscasting(game);
 }
 
