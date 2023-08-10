@@ -1,16 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 03:22:44 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 11:12:56 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 17:38:05 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub.h"
+
+void	map_position_square(t_player *player)
+{
+	player->map_square.x = floor(player->pos.x);
+	player->map_square.y = floor(player->pos.y);
+}
 
 void	my_mlx_pixel_put(t_game *cub3d, int x, int y, int color)
 {

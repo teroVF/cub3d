@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 13:54:45 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 17:38:29 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,6 @@ void		calculate_delta(t_game *g);
 void		dda(t_game *g);
 void		calculate_distance(t_game *g);
 void		calculate_height_wall(t_game *game);
-void		map_position_square(t_player *player);
 
 /* CALC_VECTOR1.C */
 t_vector	mult_vector(t_vector *v, double n);
@@ -162,6 +161,7 @@ int			rayscasting(t_game *g);
 int			render_game(t_game *cub3d);
 
 /* RENDER_UTILS.C */
+void		map_position_square(t_player *player);
 void		my_mlx_pixel_put(t_game *game, int x, int y, int color);
 int			create_background(t_game *g);
 
