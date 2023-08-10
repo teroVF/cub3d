@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 04:39:10 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 02:39:22 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/10 11:28:42 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,17 @@ void	render_collumn_pixel(t_game *cub3d)
 	int	x;
 	int	y;
 	int	color;
+	int	red;
+	int	dark_red;
 
 	y = cub3d->player.tall_of_wall_y1;
 	x = cub3d->pixel;
-	//red
-	int	color1 = 0x00FF0000;
-	//dark red
-	int	color2 = 0x00B20000;
+	red = 0x00FF0000;
+	dark_red = 0x00B20000;
 	if (cub3d->player.hit_side == 1)
-		color = color1;
+		color = red;
 	else
-		color = color2;
-
+		color = dark_red;
 	if (cub3d->player.tall_of_wall_y1 > cub3d->player.tall_of_wall_y2)
 	{
 		printf("tall of wall y1: %d\n", cub3d->player.tall_of_wall_y1);
@@ -55,8 +54,8 @@ void	render_collumn_pixel(t_game *cub3d)
 		}
 		return ;
 	}
-		printf("tall of wall y2: %d\n", cub3d->player.tall_of_wall_y2);
-		printf("tall of wall y1: %d\n", cub3d->player.tall_of_wall_y1);
+	printf("tall of wall y2: %d\n", cub3d->player.tall_of_wall_y2);
+	printf("tall of wall y1: %d\n", cub3d->player.tall_of_wall_y1);
 	while (y < cub3d->player.tall_of_wall_y2 && y < cub3d->game_h)
 	{
 		my_mlx_pixel_put(cub3d, x, y, color);
@@ -95,7 +94,8 @@ int	rayscasting(t_game *cub3d)
 	}
 	mlx_put_image_to_window(cub3d->mlx, cub3d->window, cub3d->frame.img, 0, 0);
 	cub3d->pixel = 0;
-	printf("position absolute: %f,%f\n", cub3d->player.pos.x, cub3d->player.pos.y);
+	printf("position absolute: %f,%f\n", \
+		cub3d->player.pos.x, cub3d->player.pos.y);
 	return (0);
 }
 
