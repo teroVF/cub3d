@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 11:20:05 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 11:47:55 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,19 +145,25 @@ int			is_empty_line(t_game *cub3d, char *line);
 //render
 int			create_background(t_game *g);
 
-// raycasting
-t_vector	mult_vector(t_vector *v, double n);
-t_vector	add_vector(t_vector *v1, t_vector *v2);
-double		perpendicular_dist_x(t_player *p, int step_x);
-double		perpendicular_dist_y(t_player *p, int step_y);
-double		dist_to_wall_y(t_player *p);
-double		dist_to_wall_x(t_player *p);
-int			rayscasting(t_game *g);
-void		map_position_square(t_player *player);
+/* CALC_DDA.C */
 void		calculate_delta(t_game *g);
 void		dda(t_game *g);
 void		calculate_distance(t_game *g);
 void		calculate_height_wall(t_game *game);
+void		map_position_square(t_player *player);
+
+/* CALC_VECTOR1.C */
+t_vector	mult_vector(t_vector *v, double n);
+t_vector	add_vector(t_vector *v1, t_vector *v2);
+double		perpendicular_dist_x(t_player *p, int step_x);
+double		perpendicular_dist_y(t_player *p, int step_y);
+
+/* CALC_VECTOR2.C */
+double		dist_to_wall_y(t_player *p);
+double		dist_to_wall_x(t_player *p);
+
+// raycasting
+int			rayscasting(t_game *g);
 int			create_background(t_game *g);
 
 //init
