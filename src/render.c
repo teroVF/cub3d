@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 03:22:44 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 02:39:03 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/10 11:12:56 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 void	my_mlx_pixel_put(t_game *cub3d, int x, int y, int color)
 {
 	char	*dst;
+
 	if (x < 0 || y < 0)
 		return ;
 	if (x > cub3d->game_w || y > cub3d->game_h)
 		return ;
-	dst = cub3d->frame.addr + (y * cub3d->frame.line_length + x 
+	dst = cub3d->frame.addr + (y * cub3d->frame.line_length + x \
 		* (cub3d->frame.bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }

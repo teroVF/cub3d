@@ -6,23 +6,11 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 09:44:54 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/09 21:29:46 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 11:14:06 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub.h"
-
-void	convert_int_bit_to_rgb(t_game *cub3d, int r, int g, int b)
-{
-	r = (cub3d->floor >> 16) & 0xFF;
-	g = (cub3d->floor >> 8) & 0xFF;
-	b = cub3d->floor & 0xFF;
-	printf("floor  : %d,%d,%d\n", r, g, b);
-	r = (cub3d->ceiling >> 16) & 0xFF;
-	g = (cub3d->ceiling >> 8) & 0xFF;
-	b = cub3d->ceiling & 0xFF;
-	printf("ceiling: %d,%d,%d\n", r, g, b);
-}
 
 void	init_player(t_player *player)
 {
@@ -30,13 +18,10 @@ void	init_player(t_player *player)
 	player->dir.y = STD_Y;
 	player->plane.x = STD_PLANE_X;
 	player->plane.y = STD_PLANE_Y;
-	// player->move_speed = 0.05;
-	// player->rot_speed = 0.05;
 }
 
 void	init_game(t_game *cub3d)
 {
-	// ft_bzero(cub3d, sizeof(t_game));
 	cub3d->north = NULL;
 	cub3d->south = NULL;
 	cub3d->east = NULL;
