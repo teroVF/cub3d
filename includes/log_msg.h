@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 03:53:52 by antero            #+#    #+#             */
-/*   Updated: 2023/08/10 14:43:29 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 16:48:36 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,9 @@
 # define WIN_H			768
 
 /* STANDART PLAYER CAM*/
-# define STD_Y			-1;
-# define STD_X			0;
-# define STD_PLANE_X	0.66;
-# define STD_PLANE_Y	0;
+# define ONE			1;
+# define ZERO			0;
+# define PLANE			0.66;
 
 /* CONTROLS */
 # define SPEED 0.2

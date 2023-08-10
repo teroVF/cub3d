@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 09:44:54 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/10 13:48:34 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 16:42:53 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	init_player(t_player *player)
 {
-	player->dir.x = STD_X;
-	player->dir.y = STD_Y;
-	player->plane.x = STD_PLANE_X;
-	player->plane.y = STD_PLANE_Y;
+	player->dir.x = ZERO;
+	player->dir.y = -ONE;
+	player->plane.x = PLANE;
+	player->plane.y = ZERO;
 }
 
 void	init_game(t_game *cub3d)
