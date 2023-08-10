@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 04:19:05 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/09 21:24:55 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 11:34:39 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,37 @@ void	calculate_delta(t_game *g)
 {
 	g->player.delta_dist_x = fabs(1 / g->player.ray_dir.x);
 	g->player.delta_dist_y = fabs(1 / g->player.ray_dir.y);
-
-	if(g->player.ray_dir.x < 0)
+	if (g->player.ray_dir.x < 0)
 	{
-		g->player.dist_to_side_x = (g->player.pos.x - g->player.map_square.x) * g->player.delta_dist_x;
+		g->player.dist_to_side_x = (g->player.pos.x - g->player.map_square.x) \
+			* g->player.delta_dist_x;
 		g->player.step_x = -1;
 	}
 	else
 	{
-		g->player.dist_to_side_x = (g->player.map_square.x + 1.0 - g->player.pos.x) * g->player.delta_dist_x;
+		g->player.dist_to_side_x = (g->player.map_square.x + 1.0 \
+			- g->player.pos.x) * g->player.delta_dist_x;
 		g->player.step_x = 1;
 	}
-	if(g->player.ray_dir.y < 0)
+	if (g->player.ray_dir.y < 0)
 	{
-		g->player.dist_to_side_y = (g->player.pos.y - g->player.map_square.y) * g->player.delta_dist_y;
+		g->player.dist_to_side_y = (g->player.pos.y - g->player.map_square.y) \
+			* g->player.delta_dist_y;
 		g->player.step_y = -1;
 	}
 	else
 	{
-		g->player.dist_to_side_y = (g->player.map_square.y + 1.0 - g->player.pos.y) * g->player.delta_dist_y;
+		g->player.dist_to_side_y = (g->player.map_square.y + 1.0 \
+			- g->player.pos.y) * g->player.delta_dist_y;
 		g->player.step_y = 1;
 	}
 }
 
 void	dda(t_game *g)
 {
-	int	hit = 0;
+	int	hit;
+
+	hit = 0;
 	//     printf(" print map\n");
 	// printf("0 1 2 3 4 5 6 7 8 9 \n");
 	// printf("%c %c %c %c %c %c %c %c %c %c 0\n", map[0][0], map[0][1], map[0][2], map[0][3], map[0][4], map[0][5], map[0][6], map[0][7], map[0][8], map[0][9]);
@@ -60,7 +65,6 @@ void	dda(t_game *g)
 	// printf("%c %c %c %c %c %c %c %c %c %c 7\n", map[7][0], map[7][1], map[7][2], map[7][3], map[7][4], map[7][5], map[7][6], map[7][7], map[7][8], map[7][9]);
 	// printf("%c %c %c %c %c %c %c %c %c %c 8\n", map[8][0], map[8][1], map[8][2], map[8][3], map[8][4], map[8][5], map[8][6], map[8][7], map[8][8], map[8][9]);
 	// printf("%c %c %c %c %c %c %c %c %c %c 9\n", map[9][0], map[9][1], map[9][2], map[9][3], map[9][4], map[9][5], map[9][6], map[9][7], map[9][8], map[9][9]);
-
 	// printf("Posicao do player: %f %f\n", g->player.pos.x, g->player.pos.y);
 	while (hit == 0)
 	{
