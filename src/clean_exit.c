@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 11:28:49 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/10 11:49:48 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 13:48:23 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,6 @@ int	exit_error(t_game *cub3d, char *msg)
 	exit (EXIT_FAILURE);
 }
 
-int	end_game(t_game *game)
-{
-	mlx_destroy_window(game->mlx, game->window);
-	exit(EXIT_SUCCESS);
-}
-
 void	clean_game(t_game *cub3d)
 {
 	if (!cub3d)
@@ -59,8 +53,11 @@ void	clean_game(t_game *cub3d)
 		free_split(cub3d->map);
 }
 
-int	quit_game(t_game *cub3d)
+int	end_game(t_game *game)
 {
-	clean_game(cub3d);
+	mlx_destroy_window(game->mlx, game->window);
+	mlx_destroy_display(game->mlx);
+	free(game->mlx);
+	clean_game(game);
 	exit(EXIT_SUCCESS);
 }

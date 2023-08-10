@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 09:44:54 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/10 11:14:06 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 13:48:34 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	launch_game(char *file)
 	init_game(&cub3d);
 	parse_file(&cub3d, file);
 	render_game(&cub3d);
-	quit_game(&cub3d);
 }
 
 int	main(int ac, char **av)
