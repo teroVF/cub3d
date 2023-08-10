@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 04:39:10 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/09 22:22:34 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 02:39:22 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,24 @@ void	render_collumn_pixel(t_game *cub3d)
 		color = color1;
 	else
 		color = color2;
+
 	if (cub3d->player.tall_of_wall_y1 > cub3d->player.tall_of_wall_y2)
 	{
+		printf("tall of wall y1: %d\n", cub3d->player.tall_of_wall_y1);
+		printf("tall of wall y2: %d\n", cub3d->player.tall_of_wall_y2);
 		y = cub3d->player.tall_of_wall_y2;
-		while (y < cub3d->player.tall_of_wall_y1)
+		while (y < cub3d->player.tall_of_wall_y1 && y < cub3d->game_h)
 		{
-			my_mlx_pixel_put(&cub3d->frame, x, y, color);
+			my_mlx_pixel_put(cub3d, x, y, color);
 			y++;
 		}
 		return ;
 	}
-	while (y < cub3d->player.tall_of_wall_y2)
+		printf("tall of wall y2: %d\n", cub3d->player.tall_of_wall_y2);
+		printf("tall of wall y1: %d\n", cub3d->player.tall_of_wall_y1);
+	while (y < cub3d->player.tall_of_wall_y2 && y < cub3d->game_h)
 	{
-		my_mlx_pixel_put(&cub3d->frame, x, y, color);
+		my_mlx_pixel_put(cub3d, x, y, color);
 		y++;
 	}
 }
@@ -64,7 +69,7 @@ void	calculate_current_ray(t_game *cub3d)
 	double		ray;
 	t_vector	ray_pixel;
 
-	ray = 2 * ((double)cub3d->pixel / (cub3d->game_w - 1) * 2) - 1;
+	ray = 2 * ((double)cub3d->pixel / (cub3d->game_w - 1)) - 1;
 	ray_pixel = mult_vector(&cub3d->player.plane, ray);
 	cub3d->player.ray_dir = add_vector(&cub3d->player.dir, &ray_pixel);
 }
@@ -90,6 +95,7 @@ int	rayscasting(t_game *cub3d)
 	}
 	mlx_put_image_to_window(cub3d->mlx, cub3d->window, cub3d->frame.img, 0, 0);
 	cub3d->pixel = 0;
+	printf("position absolute: %f,%f\n", cub3d->player.pos.x, cub3d->player.pos.y);
 	return (0);
 }
 

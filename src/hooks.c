@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 00:50:24 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/09 21:31:35 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/10 02:43:04 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,35 +18,48 @@ int	end_game(t_game *game)
 	exit(EXIT_SUCCESS);
 }
 
-void	move_positionx(t_game *game, int direction)
+void	move_positionx(t_game *game, t_vector *dir, int direction)
 {
 	t_player	*p;
 	double		speed;
-
+	t_vector	temp;
+	
+	temp.x = dir->x;
+	temp.y = dir->y;
+	rotate_vector(&temp, PI / 2);
 	speed = 0.2;
 	p = &game->player;
-	p->pos.x += speed * direction;
+	p->pos.y += speed * temp.y * direction;
+	p->pos.x += speed * temp.x * direction;
+	if (game->map[(int)p->pos.y][(int)p->pos.x] == '1')
+	{
+		p->pos.y -= speed * temp.y * direction;
+		p->pos.x -= speed * temp.x * direction;
+		return ;
+	}
 	rayscasting(game);
-	// printf("////////////////////////////////////\n");
-	// printf("y: %f\n", p->pos.y);
-	// printf("x: %f\n", p->pos.x);
 }
 
-void	move_positiony(t_game *game, int direction)
+void	move_positiony(t_game *game, t_vector *dir, int direction)
 {
 	t_player	*p;
 	double		speed;
-
+	
 	speed = 0.2;
 	p = &game->player;
-	p->pos.y += speed * direction;
+	p->pos.y += speed * dir->y * direction;
+	p->pos.x += speed * dir->x * direction;
+	if (game->map[(int)p->pos.y][(int)p->pos.x] == '1')
+	{
+		p->pos.y -= speed * dir->y * direction;
+		p->pos.x -= speed * dir->x * direction;
+		return ;
+	}
 	rayscasting(game);
-	// printf("////////////////////////////////////\n");
-	// printf("y: %f\n", p->pos.y);
-	// printf("x: %f\n", p->pos.x);
+	printf("FIM\n");
 }
 
-void	rotate_left(t_game *game)
+void	rotate_right(t_game *game)
 {
 	t_player	*p;
 	double		olddirx;
@@ -63,7 +76,7 @@ void	rotate_left(t_game *game)
 	p->plane.y = oldplanex * sin(-rot_speed) + p->plane.y * cos(-rot_speed);
 	rayscasting(game);
 }
-void	rotate_right(t_game *game)
+void	rotate_left(t_game *game)
 {
 	t_player	*p;
 	double		olddirx;
@@ -83,16 +96,20 @@ void	rotate_right(t_game *game)
 
 int	read_keys(int keypress, t_game *game)
 {
+	printf("key: %d\n", keypress);
 	if (keypress == KEY_ESC)
 		end_game(game);
 	if (keypress == A)
-		move_positionx(game, -1);
+		move_positionx(game, &game->player.dir, 1);
 	if (keypress == D)
-		move_positionx(game, 1);
+	{
+		printf("entro\n");
+		move_positionx(game, &game->player.dir, -1);
+	}
 	if (keypress == W)
-		move_positiony(game, -1);
+		move_positiony(game, &game->player.dir, 1);
 	if (keypress == S)
-		move_positiony(game, 1);
+		move_positiony(game, &game->player.dir, -1);
 	if (keypress == LEFT)
 		rotate_left(game);
 	if (keypress == RIGHT)
