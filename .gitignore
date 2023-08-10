@@ -2,4 +2,5 @@ lib/libft/*.o
 lib/libft/libft.a
 lib/mlx/
 obj/
+out/
 cub3D
