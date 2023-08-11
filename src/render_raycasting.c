@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 04:39:10 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 14:02:27 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/11 10:12:16 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,20 @@
 // 		{'1', '1', '1', '1', '1', '1', '1', '1', '1', '1'}  //9
 // 	};
 
-void	render_collumn_pixel(t_game *cub3d)
+void	render_collumn_pixel(t_game *cub3d, int color1, int color2)
 {
 	int	x;
 	int	y;
 	int	color;
-	int	red;
-	int	dark_red;
 
 	y = cub3d->player.tall_of_wall_y1;
 	x = cub3d->pixel;
-	red = 0x00FF0000;
-	dark_red = 0x00B20000;
 	if (cub3d->player.hit_side == 1)
-		color = red;
+		color = color1;
 	else
-		color = dark_red;
+		color = color2;
 	if (cub3d->player.tall_of_wall_y1 > cub3d->player.tall_of_wall_y2)
 	{
-		printf("tall of wall y1: %d\n", cub3d->player.tall_of_wall_y1);
-		printf("tall of wall y2: %d\n", cub3d->player.tall_of_wall_y2);
 		y = cub3d->player.tall_of_wall_y2;
 		while (y < cub3d->player.tall_of_wall_y1 && y < cub3d->game_h)
 		{
@@ -54,8 +48,6 @@ void	render_collumn_pixel(t_game *cub3d)
 		}
 		return ;
 	}
-	printf("tall of wall y2: %d\n", cub3d->player.tall_of_wall_y2);
-	printf("tall of wall y1: %d\n", cub3d->player.tall_of_wall_y1);
 	while (y < cub3d->player.tall_of_wall_y2 && y < cub3d->game_h)
 	{
 		my_mlx_pixel_put(cub3d, x, y, color);
@@ -91,7 +83,7 @@ int	rayscasting(t_game *cub3d)
 		dda(cub3d);
 		calculate_distance(cub3d);
 		calculate_height_wall(cub3d);
-		render_collumn_pixel(cub3d);
+		render_collumn_pixel(cub3d, 0x00FF0000, 0x00B20000);
 		cub3d->pixel++;
 	}
 	mlx_put_image_to_window(cub3d->mlx, cub3d->window, cub3d->frame.img, 0, 0);

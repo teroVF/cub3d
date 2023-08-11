@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/11 09:44:19 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/11 10:10:34 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,22 +68,36 @@ typedef struct s_camera
 	t_vector	ray_dir;
 }				t_camera;
 
+// pos - posicao do jogador no mapa
+// dir - direcajogador
+// plane - plano da camera
+// map_square - quadrado do mapa em que o jogador esta
+// ray_dir - direcao do raio
+// step_x - passos em x
+// step_y - passos em y
+// size_ray - tamanho do raio
+// tall_of_wall - altura da parede
+// tall_of_wall_y1 - ponto 1
+// tall_of_wall_y2 - ponto 2
+// hit_side - 0 = horizontal, 1 = vertical
+// dist_to_side_x - distancia ate a parede em x
+// dist_to_side_y - distancia ate a parede em y
 typedef struct s_player
 {
-	t_vector	pos; //posicao do jogador no mapa
-	t_vector	dir; //direcajogador
-	t_vector	plane; //plano da camera
-	t_position	map_square; //quadrado do mapa em que o jogador esta
-	t_vector	ray_dir; //direcao do raio
-	int			step_x; //passos em x
-	int			step_y; //passos em y
-	double		size_ray; //tamanho do raio
-	double		tall_of_wall; //altura da parede
-	int			tall_of_wall_y1; //ponto 1
-	int			tall_of_wall_y2; //ponto 2
-	int			hit_side; //0 = horizontal, 1 = vertical
-	double		dist_to_side_x; //distancia ate a parede em x
-	double		dist_to_side_y; //distancia ate a parede em y
+	t_vector	pos;
+	t_vector	dir;
+	t_vector	plane;
+	t_position	map_square;
+	t_vector	ray_dir;
+	int			step_x;
+	int			step_y;
+	double		size_ray;
+	double		tall_of_wall;
+	int			tall_of_wall_y1;
+	int			tall_of_wall_y2;
+	int			hit_side;
+	double		dist_to_side_x;
+	double		dist_to_side_y;
 	double		delta_dist_x;
 	double		delta_dist_y;
 }				t_player;
@@ -155,7 +169,7 @@ double		dist_to_wall_y(t_player *p);
 double		dist_to_wall_x(t_player *p);
 
 /* RENDER_RAYCASTING.C */
-void		render_collumn_pixel(t_game *cub3d);
+void		render_collumn_pixel(t_game *cub3d, int color1, int color2);
 void		calculate_current_ray(t_game *cub3d);
 int			rayscasting(t_game *g);
 int			render_game(t_game *cub3d);
