@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 09:44:54 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/10 20:43:29 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/11 11:19:38 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	init_game(t_game *cub3d)
 	cub3d->start_map = NO;
 	cub3d->temp_map = NULL;
 	cub3d->empty_line = NO;
+	cub3d->game_h = WIN_H;
+	cub3d->game_w = WIN_W;
 	init_player(&cub3d->player);
 }
 
