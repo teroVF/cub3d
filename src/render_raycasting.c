@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 04:39:10 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/11 10:12:16 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/11 10:18:50 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ int	rayscasting(t_game *cub3d)
 	cub3d->frame.addr = mlx_get_data_addr(cub3d->frame.img, \
 		&cub3d->frame.bits_per_pixel, &cub3d->frame.line_length, \
 		&cub3d->frame.endian);
-	printf("aqui\n");
 	create_background(cub3d);
 	while (cub3d->pixel < cub3d->game_w)
 	{
@@ -88,8 +87,6 @@ int	rayscasting(t_game *cub3d)
 	}
 	mlx_put_image_to_window(cub3d->mlx, cub3d->window, cub3d->frame.img, 0, 0);
 	cub3d->pixel = 0;
-	printf("position absolute: %f,%f\n", \
-		cub3d->player.pos.x, cub3d->player.pos.y);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 00:50:24 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 17:15:22 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/11 10:18:27 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ void	rotate_right(t_game *game)
 
 int	read_keys(int keypress, t_game *game)
 {
-	printf("key: %d\n", keypress);
 	if (keypress == KEY_ESC)
 		end_game(game);
 	if (keypress == W)

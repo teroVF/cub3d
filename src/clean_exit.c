@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 11:28:49 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/10 13:54:45 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/11 10:22:34 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ int	end_game(t_game *game)
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
 	clean_parse(game);
+	printf("\n	Thank you for playing our cub3D maze!\n\n");
 	exit(EXIT_SUCCESS);
 }
