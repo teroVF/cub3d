@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 17:38:29 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/11 09:44:19 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <limits.h>
 # include <math.h>
 # include "log_msg.h"
-# include "libft.h"
-# include "mlx.h"
+# include "../lib/libft/libft.h"
+# include "../lib/mlx/mlx.h"
 
 # define PI 3.14159265358979323846
 
