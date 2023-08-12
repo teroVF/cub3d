@@ -3,47 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   render_raycasting.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 04:39:10 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/11 10:18:50 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/12 03:26:43 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub.h"
 
-// char map[10][10] =
-// 	{	//0    1    2    3    4    5    6    7    8    9
-// 		{'1', '1', '1', '1', '1', '1', '1', '1', '1', '1'}, //0
-// 		{'1', '0', '0', '0', '1', '0', '0', '0', '0', '1'}, //1
-// 		{'1', '0', '0', '0', '0', '1', '0', '0', '0', '1'}, //2
-// 		{'1', '0', '0', '0', '0', '0', '0', '0', '0', '1'}, //3
-// 		{'1', '0', '0', '0', '0', '0', '0', '0', '0', '1'}, //4
-// 		{'1', '0', '0', '0', '0', '0', '0', '0', '0', '1'}, //5
-// 		{'1', '0', '0', '0', '0', '0', '0', '0', '0', '1'}, //6
-// 		{'1', '0', '0', '0', '0', '0', '0', '0', '0', '1'}, //7
-// 		{'1', '0', '0', '0', '0', '0', '0', '0', '0', '1'}, //8
-// 		{'1', '1', '1', '1', '1', '1', '1', '1', '1', '1'}  //9
-// 	};
-
-void	render_collumn_pixel(t_game *cub3d, int color1, int color2)
+void	render_collumn_pixel(t_game *cub3d)
 {
 	int	x;
 	int	y;
-	int	color;
+	int	texture;
 
 	y = cub3d->player.tall_of_wall_y1;
 	x = cub3d->pixel;
-	if (cub3d->player.hit_side == 1)
-		color = color1;
+	if (cub3d->player.hit_side == 1 && cub3d->player.ray_dir.y < 0)
+		texture = cub3d->north_img;
+	else if (cub3d->player.hit_side == 1 && cub3d->player.ray_dir.y > 0)
+		texture = cub3d->south_img;
+	else if (cub3d->player.hit_side == 0 && cub3d->player.ray_dir.x < 0)
+		texture = cub3d->west_img;
 	else
-		color = color2;
+		texture = cub3d->east_img;
 	if (cub3d->player.tall_of_wall_y1 > cub3d->player.tall_of_wall_y2)
 	{
 		y = cub3d->player.tall_of_wall_y2;
 		while (y < cub3d->player.tall_of_wall_y1 && y < cub3d->game_h)
 		{
-			my_mlx_pixel_put(cub3d, x, y, color);
+			my_mlx_pixel_put(cub3d, x, y, extract_color(textur
 			y++;
 		}
 		return ;

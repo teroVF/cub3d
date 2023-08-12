@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 03:22:44 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 17:38:05 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/12 03:14:15 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ void	my_mlx_pixel_put(t_game *cub3d, int x, int y, int color)
 	dst = cub3d->frame.addr + (y * cub3d->frame.line_length + x \
 		* (cub3d->frame.bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
+}
+
+static inline int	create_trgb(int t, int r, int g, int b)
+{
+	return (t << 24 | r << 16 | g << 8 | b);
 }
 
 inline static int	create_floor(t_game *g)
