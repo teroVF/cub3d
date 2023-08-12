@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 09:44:54 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/11 16:17:35 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/12 03:04:05 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ void	init_player(t_player *player)
 	player->dir.y = -ONE;
 	player->plane.x = PLANE;
 	player->plane.y = ZERO;
+}
+
+void init_textures(t_game *cub3d)
+{
+	cub3d->north_img = mlx
 }
 
 void	init_game(t_game *cub3d)
@@ -37,6 +42,7 @@ void	init_game(t_game *cub3d)
 	cub3d->game_h = WIN_H;
 	cub3d->game_w = WIN_W;
 	init_player(&cub3d->player);
+	init_textures(&cub3d);
 }
 
 void	get_screen_size(t_game *cub3d, void	*tmp_mlx, void	*tmp_win, int split)
