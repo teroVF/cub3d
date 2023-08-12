@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/11 10:10:34 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/12 02:59:56 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ typedef struct s_player
 	double		delta_dist_x;
 	double		delta_dist_y;
 }				t_player;
+
 typedef struct s_game
 {
 	void		*mlx;
@@ -115,6 +116,10 @@ typedef struct s_game
 	char		*south;
 	char		*east;
 	char		*west;
+	void		*north_img;
+	void		*south_img;
+	void		*east_img;
+	void		*west_img;
 	char		*line;
 	char		**colors;
 	int			ceiling;
