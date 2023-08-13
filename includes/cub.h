@@ -6,7 +6,7 @@
 /*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/13 02:50:56 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/13 03:41:10 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ typedef struct s_data
 {
 	void	*img;
 	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
+	int		bpp;
+	int		line_len;
 	int		endian;
 }			t_data;
 
@@ -164,7 +164,7 @@ double		dist_to_wall_y(t_player *p);
 double		dist_to_wall_x(t_player *p);
 
 /* RENDER_RAYCASTING.C */
-void		render_collumn_pixel(t_game *cub3d, int color1, int color2);
+void		render_collumn_pixel(t_game *cub3d);
 void		calculate_current_ray(t_game *cub3d);
 int			rayscasting(t_game *g);
 int			render_game(t_game *cub3d);
@@ -189,5 +189,6 @@ int			end_game(t_game *game);
 
 int			obtain_color(t_game *cub3d, int y);
 void		discover_textere_x (t_player player);
+void		init_textures(t_game *cub3d);
 
 #endif
