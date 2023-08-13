@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/12 02:59:56 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/13 02:50:56 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,6 @@ typedef struct s_position
 	int	y;
 }		t_position;
 
-typedef union u_distance
-{
-	double	dist_y;
-	double	dist_x;
-}			t_distance;
-
-typedef union u_delta
-{
-	double	delta_y;
-	double	delta_x;
-}			t_deta;
 
 typedef struct s_camera
 {
@@ -93,6 +82,7 @@ typedef struct s_player
 	int			step_y;
 	double		size_ray;
 	double		tall_of_wall;
+	int			text_x;
 	int			tall_of_wall_y1;
 	int			tall_of_wall_y2;
 	int			hit_side;
@@ -107,19 +97,18 @@ typedef struct s_game
 	void		*mlx;
 	void		*window;
 	int			pixel;
+	int			game_h;
+	int			game_w;
 	int			color_floor;
 	int			color_ceiling;
-	int			game_w;
-	int			game_h;
-	t_player	player;
 	char		*north;
 	char		*south;
 	char		*east;
 	char		*west;
-	void		*north_img;
-	void		*south_img;
-	void		*east_img;
-	void		*west_img;
+	t_data		north_img;
+	t_data		south_img;
+	t_data		east_img;
+	t_data		west_img;
 	char		*line;
 	char		**colors;
 	int			ceiling;
@@ -130,6 +119,7 @@ typedef struct s_game
 	char		**map;
 	int			empty_line;
 	t_data		frame;
+	t_player	player;
 }				t_game;
 
 /* PARSE.C */
@@ -196,5 +186,8 @@ int			exit_error(t_game *cub3d, char *msg);
 void		free_split(char **split);
 void		clean_parse(t_game *cub3d);
 int			end_game(t_game *game);
+
+int			obtain_color(t_game *cub3d, int y);
+void		discover_textere_x (t_player player);
 
 #endif
