@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   log_msg.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 03:53:52 by antero            #+#    #+#             */
-/*   Updated: 2023/08/11 16:10:35 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/13 02:20:18 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@
 /* WINDOW SIZE*/
 # define WIN_W			320
 # define WIN_H			200
+# define WIN_TITLE		"Cub3D"
+# define TEXTURE_SIZE	64
 
 /* STANDART PLAYER CAM*/
 # define ONE			1;
