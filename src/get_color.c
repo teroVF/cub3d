@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_color.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 00:47:57 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/14 15:41:55 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/14 17:40:32 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,8 @@ void	find_out_text_x(t_player *player)
 	}
 	wall -= floor(wall);
 	player->text_x = (int)(wall * (double)TEXTURE_SIZE);
-	printf("text_x: %d\n", player->text_x);
+	if (player->hit_side && player->pos.y < player->map_square.y)
+		player->text_x = TEXTURE_SIZE - player->text_x - 1;
+	if (!player->hit_side && player->pos.x > player->map_square.x)
+		player->text_x = TEXTURE_SIZE - player->text_x - 1;
 }
