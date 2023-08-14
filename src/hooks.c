@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 00:50:24 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/14 18:22:37 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/14 19:17:42 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ void	move_positionx(t_game *game, t_vector *dir, int direction)
 	p = &game->player;
 	p->pos.y += MOV * temp.y * direction;
 	p->pos.x += MOV * temp.x * direction;
-	if (game->map[(int)p->pos.y][(int)p->pos.x] == '1'
-		|| game->map[(int)p->pos.y][(int)p->pos.x] == ' '
-		|| game->map[(int)p->pos.y][(int)p->pos.x] == '\0')
+	if (game->map[(int)p->pos.y][(int)p->pos.x] != '0')
 	{
 		p->pos.y -= MOV * temp.y * direction;
 		p->pos.x -= MOV * temp.x * direction;
@@ -41,9 +39,7 @@ void	move_positiony(t_game *game, t_vector *dir, int direction)
 	p = &game->player;
 	p->pos.y += MOV * dir->y * direction;
 	p->pos.x += MOV * dir->x * direction;
-	if (game->map[(int)p->pos.y][(int)p->pos.x] == '1'
-		|| game->map[(int)p->pos.y][(int)p->pos.x] == ' '
-		|| game->map[(int)p->pos.y][(int)p->pos.x] == '\0')
+	if (game->map[(int)p->pos.y][(int)p->pos.x] != '0')
 	{
 		p->pos.y -= MOV * dir->y * direction;
 		p->pos.x -= MOV * dir->x * direction;
