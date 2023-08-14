@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 11:28:49 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/11 10:22:34 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:46:20 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,35 @@ void	clean_parse(t_game *cub3d)
 		free_split(cub3d->map);
 }
 
+void	invalid_xpm_error(t_game *game, char *msg)
+{
+	if (game->north_img.img)
+		mlx_destroy_image(game->mlx, game->north_img.img);
+	if (game->south_img.img)
+		mlx_destroy_image(game->mlx, game->south_img.img);
+	if (game->east_img.img)
+		mlx_destroy_image(game->mlx, game->east_img.img);
+	if (game->west_img.img)
+		mlx_destroy_image(game->mlx, game->west_img.img);
+	if (game->frame.img)
+		mlx_destroy_image(game->mlx, game->frame.img);
+	mlx_destroy_window(game->mlx, game->window);
+	mlx_destroy_display(game->mlx);
+	free(game->mlx);
+	clean_parse(game);
+	ft_putstr_fd("Error\n", 2);
+	ft_putstr_fd(msg, 2);
+	ft_putstr_fd("\n", 2);
+	exit (EXIT_FAILURE);
+}
+
 int	end_game(t_game *game)
 {
 	mlx_destroy_image(game->mlx, game->frame.img);
+	mlx_destroy_image(game->mlx, game->north_img.img);
+	mlx_destroy_image(game->mlx, game->south_img.img);
+	mlx_destroy_image(game->mlx, game->east_img.img);
+	mlx_destroy_image(game->mlx, game->west_img.img);
 	mlx_destroy_window(game->mlx, game->window);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);

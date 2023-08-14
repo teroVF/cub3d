@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_raycasting.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 04:39:10 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/14 04:38:30 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:50:56 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	render_game(t_game *cub3d)
 	cub3d->mlx = mlx_init();
 	cub3d->window = mlx_new_window(cub3d->mlx, \
 		cub3d->game_w, cub3d->game_h, WIN_TITLE);
-	init_textures(cub3d);
+	init_textures(cub3d, TEXTURE_SIZE);
 	rayscasting(cub3d);
 	mlx_key_hook(cub3d->window, read_keys, cub3d);
 	mlx_hook(cub3d->window, 17, 1L << 0, end_game, cub3d);

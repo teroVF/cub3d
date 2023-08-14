@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   log_msg.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 03:53:52 by antero            #+#    #+#             */
-/*   Updated: 2023/08/13 02:20:18 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:31:18 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@
 # define ERR_XPM_OPEN	"Couldn't open texture file"
 # define ERR_XPM_RPT	"Has repeated textures in this input file"
 # define ERR_XPM_CALL	"Has repeated textures calls in this input file"
+# define ERR_TEXTURE	"Invalid texture file"
 
 # define ERR_COLOR_FMT	"Color format must be R,G,B"
 # define ERR_COLOR_NUM	"Colors must have only positive numbers"

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/14 04:39:13 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:50:27 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,10 +187,11 @@ int			read_keys(int keypress, t_game *game);
 int			exit_error(t_game *cub3d, char *msg);
 void		free_split(char **split);
 void		clean_parse(t_game *cub3d);
+void		invalid_xpm_error(t_game *game, char *msg);
 int			end_game(t_game *game);
 
 int			obtain_color(t_game *cub3d);
 void		find_out_text_x (t_player *player);
-void		init_textures(t_game *cub3d);
+void		init_textures(t_game *cub3d, int size);
 
 #endif
