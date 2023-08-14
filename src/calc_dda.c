@@ -6,7 +6,7 @@
 /*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 04:19:05 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/14 02:37:19 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/14 04:39:38 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,5 @@ void	calculate_height_wall(t_game *game)
 		p->tall_of_wall_y1 = 0;
 	if (p->tall_of_wall_y2 > game->game_h)
 		p->tall_of_wall_y2 = game->game_h -1;
-	discover_textere_x (p);
+	find_out_text_x(p);
 }

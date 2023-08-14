@@ -6,7 +6,7 @@
 /*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/14 04:24:27 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/14 04:39:13 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ typedef struct s_player
 	double		size_ray;
 	double		tall_of_wall;
 	int			text_x;
+	int			text_y;
 	int			tall_of_wall_y1;
 	int			tall_of_wall_y2;
 	int			hit_side;
@@ -189,7 +190,7 @@ void		clean_parse(t_game *cub3d);
 int			end_game(t_game *game);
 
 int			obtain_color(t_game *cub3d);
-void		discover_textere_x (t_player *player);
+void		find_out_text_x (t_player *player);
 void		init_textures(t_game *cub3d);
 
 #endif
