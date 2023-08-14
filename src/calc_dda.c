@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calc_dda.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 04:19:05 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/10 17:38:09 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/14 02:37:19 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ double	get_distance(t_game *g, int less_zero, int is_x)
 		return ((g->player.map_square.y + 1.0 - g->player.pos.y) \
 			* g->player.delta_dist_y);
 }
-
+//calcular a distancia do denta para a parece X ou Y
 void	calculate_delta(t_game *g)
 {
 	g->player.delta_dist_x = fabs(1 / g->player.ray_dir.x);
@@ -53,7 +53,7 @@ void	calculate_delta(t_game *g)
 		g->player.step_y = 1;
 	}
 }
-
+// algotitmo para ver onde o raio vai embater
 void	dda(t_game *g)
 {
 	int	hit;
@@ -77,7 +77,8 @@ void	dda(t_game *g)
 			hit = 1;
 	}
 }
-
+// calcular a distancia perpendicular, distancia do plano do jogador até à parede para evitar o olho de peixe,
+// pode dar negativo, mas nao faz mal pq depois a altura da parede é sempre positiva
 void	calculate_distance(t_game *g)
 {
 	t_player	*p;
@@ -88,13 +89,21 @@ void	calculate_distance(t_game *g)
 	else
 		p->size_ray = perpendicular_dist_y(p, p->step_y);
 }
-
+//calcula o tamanho fa linha, desde o inicio p->tall_of_wall_y1 ate ao fim p->tall_of_wall_y2;
+//Tall of wall é a altura da parede, sempre positivo
+// e tall_of_wall_y1 no minimo 0 e e o maximode y2 e a altura do jogo
 void	calculate_height_wall(t_game *game)
 {
 	t_player	*p;
 
 	p = &game->player;
-	p->tall_of_wall = ((double)game->game_h / p->size_ray);
-	p->tall_of_wall_y1 = (game->game_h / 2.00) + (p->tall_of_wall / 2.00);
-	p->tall_of_wall_y2 = (game->game_h / 2.00) - (p->tall_of_wall / 2.00);
+
+	p->tall_of_wall = fabs(((double)game->game_h / p->size_ray));
+	p->tall_of_wall_y1 = (game->game_h / 2.00) - (p->tall_of_wall / 2.00);
+	p->tall_of_wall_y2 = (game->game_h / 2.00) + (p->tall_of_wall / 2.00);
+	if (p->tall_of_wall_y1 < 0)
+		p->tall_of_wall_y1 = 0;
+	if (p->tall_of_wall_y2 > game->game_h)
+		p->tall_of_wall_y2 = game->game_h -1;
+	discover_textere_x (p);
 }
