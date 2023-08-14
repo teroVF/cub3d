@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 09:44:54 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/14 18:06:05 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/14 23:47:58 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	launch_game(char *file)
 	ft_memset(&cub3d, 0, sizeof(t_game));
 	init_game(&cub3d);
 	parse_file(&cub3d, file);
-	get_screen_size(&cub3d, NULL, NULL, 0);
+	get_screen_size(&cub3d, NULL, NULL, 2);
 	render_game(&cub3d);
 }
 

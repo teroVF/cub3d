@@ -6,7 +6,7 @@
 /*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 04:39:10 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/14 17:06:35 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/14 23:59:49 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,11 @@ int	rayscasting(t_game *cub3d)
 	mlx_clear_window(cub3d->mlx, cub3d->window);
 	mlx_put_image_to_window(cub3d->mlx, cub3d->window, cub3d->frame.img, 0, 0);
 	cub3d->pixel = 0;
+	printf("dir_x: %f\ndir_y: %f\nplane_x: %f\nplane_y: %f\n", \
+		cub3d->player.dir.x, cub3d->player.dir.y, \
+		cub3d->player.plane.x, cub3d->player.plane.y);
+	printf("calcular angulo: %f\n", \
+		atan2(cub3d->player.dir.y, cub3d->player.dir.x) * 180 / M_PI);
 	return (0);
 }
 
