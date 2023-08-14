@@ -15,11 +15,12 @@ PERFORMANCE = -O3 -march=native -flto -funroll-loops
 RM = rm -fr
 
 #Sources
-FILES = main \
+FILES = main init \
 		parse parse_utils parse_map set_player \
 		calc_vector1 calc_vector2 calc_dda \
-		render_raycasting render_utils \
-		hooks clean_exit  get_color
+		render_raycasting render_utils get_color \
+		hooks \
+		clean_exit
 
 # BONUS_FILES	=		
 

@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:35:31 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/14 13:50:27 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/14 14:20:17 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ typedef struct s_position
 	int	x;
 	int	y;
 }		t_position;
-
 
 typedef struct s_camera
 {
@@ -190,8 +189,14 @@ void		clean_parse(t_game *cub3d);
 void		invalid_xpm_error(t_game *game, char *msg);
 int			end_game(t_game *game);
 
-int			obtain_color(t_game *cub3d);
-void		find_out_text_x (t_player *player);
+/* INIT.C */
+void		init_game(t_game *cub3d);
+void		init_player(t_player *player);
 void		init_textures(t_game *cub3d, int size);
+void		get_screen_size(t_game *cub3d, void	*mlx, void	*win, int split);
+
+/* GET_COLOR.C */
+int			obtain_color(t_game *cub3d);
+void		find_out_text_x(t_player *player);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 04:39:10 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/14 13:50:56 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/14 14:13:14 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 void	render_collumn_pixel(t_game *cub3d)
 {
-	int	x;
-	int	y;
-	double		step_y;
-	double		pos;
-	
+	int		x;
+	int		y;
+	double	step_y;
+	double	pos;
+
 	step_y = fabs((double)TEXTURE_SIZE / cub3d->player.tall_of_wall);
 	// printf("step_y: %f\n", step_y);
-	pos = (cub3d->player.tall_of_wall_y1 - (cub3d->game_h / 2) + (cub3d->player.tall_of_wall / 2)) * step_y;
+	pos = (cub3d->player.tall_of_wall_y1 - (cub3d->game_h / 2) \
+		+ (cub3d->player.tall_of_wall / 2)) * step_y;
 	// printf("pos: %f\n", pos);
 	// printf("raio %f\n", cub3d->player.size_ray);
 	y = cub3d->player.tall_of_wall_y1;
@@ -45,7 +46,6 @@ void	calculate_current_ray(t_game *cub3d)
 	ray_pixel = mult_vector(&cub3d->player.plane, ray);
 	cub3d->player.ray_dir = add_vector(&cub3d->player.dir, &ray_pixel);
 }
-
 
 int	rayscasting(t_game *cub3d)
 {
