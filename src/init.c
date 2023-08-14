@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 14:15:44 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/14 14:19:42 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/14 17:16:39 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,20 +49,8 @@ void	init_textures(t_game *cub3d, int size)
 
 void	init_game(t_game *cub3d)
 {
-	cub3d->north = NULL;
-	cub3d->south = NULL;
-	cub3d->east = NULL;
-	cub3d->west = NULL;
-	cub3d->line = NULL;
-	cub3d->colors = NULL;
 	cub3d->ceiling = -1;
 	cub3d->floor = -1;
-	cub3d->spawn = 0;
-	cub3d->start_map = NO;
-	cub3d->temp_map = NULL;
-	cub3d->empty_line = NO;
-	cub3d->game_h = WIN_H;
-	cub3d->game_w = WIN_W;
 	init_player(&cub3d->player);
 }
 
