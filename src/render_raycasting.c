@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_raycasting.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 04:39:10 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/14 14:13:14 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/14 17:06:35 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,10 @@ void	render_collumn_pixel(t_game *cub3d)
 	double	pos;
 
 	step_y = fabs((double)TEXTURE_SIZE / cub3d->player.tall_of_wall);
-	// printf("step_y: %f\n", step_y);
 	pos = (cub3d->player.tall_of_wall_y1 - (cub3d->game_h / 2) \
 		+ (cub3d->player.tall_of_wall / 2)) * step_y;
-	// printf("pos: %f\n", pos);
-	// printf("raio %f\n", cub3d->player.size_ray);
 	y = cub3d->player.tall_of_wall_y1;
 	x = cub3d->pixel;
-	// printf("y1: %d, y2: %d\n", cub3d->player.tall_of_wall_y1, cub3d->player.tall_of_wall_y2);
 	while (y < cub3d->player.tall_of_wall_y2 && y < cub3d->game_h)
 	{
 		cub3d->player.text_y = (int)pos & (TEXTURE_SIZE - 1);
