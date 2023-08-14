@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_raycasting.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 04:39:10 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/13 03:51:55 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/14 04:32:50 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@ void	render_collumn_pixel(t_game *cub3d)
 {
 	int	x;
 	int	y;
-
+	double		step_y;
+	double		pos;
+	
+	step_y = fabs((double)TEXTURE_SIZE / cub3d->player.tall_of_wall);
+	// printf("step_y: %f\n", step_y);
+	pos = (cub3d->player.tall_of_wall_y1 - (cub3d->game_h / 2) + (cub3d->player.tall_of_wall / 2)) * step_y;
+	// printf("pos: %f\n", pos);
+	// printf("raio %f\n", cub3d->player.size_ray);
 	y = cub3d->player.tall_of_wall_y1;
 	x = cub3d->pixel;
-	if (cub3d->player.tall_of_wall_y1 > cub3d->player.tall_of_wall_y2)
-	{
-		y = cub3d->player.tall_of_wall_y2;
-		while (y < cub3d->player.tall_of_wall_y1 && y < cub3d->game_h)
-		{
-			my_mlx_pixel_put(cub3d, x, y, obtain_color(cub3d, y));
-			y++;
-		}
-		return ;
-	}
+	// printf("y1: %d, y2: %d\n", cub3d->player.tall_of_wall_y1, cub3d->player.tall_of_wall_y2);
 	while (y < cub3d->player.tall_of_wall_y2 && y < cub3d->game_h)
 	{
-		my_mlx_pixel_put(cub3d, x, y, obtain_color(cub3d, y));
+		cub3d->player.text_y = (int)pos & (TEXTURE_SIZE - 1);
+		pos += step_y;
+		my_mlx_pixel_put(cub3d, x, y, obtain_color(cub3d));
 		y++;
 	}
 }
@@ -56,8 +56,6 @@ int	rayscasting(t_game *cub3d)
 		&cub3d->frame.bpp, &cub3d->frame.line_len, \
 		&cub3d->frame.endian);
 	create_background(cub3d);
-	printf("%d\n", cub3d->pixel);
-	printf("AQUI\n");
 	while (cub3d->pixel < cub3d->game_w)
 	{
 		map_position_square(&cub3d->player);
@@ -68,8 +66,6 @@ int	rayscasting(t_game *cub3d)
 		calculate_height_wall(cub3d);
 		render_collumn_pixel(cub3d);
 		cub3d->pixel++;
-		if (cub3d->pixel == 799)
-			break ;
 	}
 	mlx_clear_window(cub3d->mlx, cub3d->window);
 	mlx_put_image_to_window(cub3d->mlx, cub3d->window, cub3d->frame.img, 0, 0);
