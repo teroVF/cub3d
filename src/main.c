@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 09:44:54 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/08/13 03:40:22 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/14 04:27:20 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void init_textures(t_game *cub3d)
 	size = TEXTURE_SIZE;
 	cub3d->north_img.img = mlx_xpm_file_to_image(cub3d->mlx, cub3d->north, \
 		&size, &size);
-	printf("north: %s\n", cub3d->north);
 	cub3d->north_img.addr = mlx_get_data_addr(cub3d->north_img.img, \
 		&cub3d->north_img.bpp, &cub3d->north_img.line_len, \
 		&cub3d->north_img.endian);
@@ -36,10 +35,9 @@ void init_textures(t_game *cub3d)
 	cub3d->south_img.addr = mlx_get_data_addr(cub3d->south_img.img, \
 		&cub3d->south_img.bpp, &cub3d->south_img.line_len, \
 		&cub3d->south_img.endian);
-
 	cub3d->east_img.img = mlx_xpm_file_to_image(cub3d->mlx, cub3d->east, \
 		&size, &size);
-	cub3d->east_img.addr = mlx_get_data_addr(&cub3d->east_img.img, \
+	cub3d->east_img.addr = mlx_get_data_addr(cub3d->east_img.img, \
 		&cub3d->east_img.bpp, &cub3d->east_img.line_len, \
 		&cub3d->east_img.endian);
 	cub3d->west_img.img = mlx_xpm_file_to_image(cub3d->mlx, cub3d->west, \
@@ -47,7 +45,6 @@ void init_textures(t_game *cub3d)
 	cub3d->west_img.addr = mlx_get_data_addr(cub3d->west_img.img, \
 		&cub3d->west_img.bpp, &cub3d->west_img.line_len, \
 		&cub3d->west_img.endian);
-
 }
 
 void	init_game(t_game *cub3d)
