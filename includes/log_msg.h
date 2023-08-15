@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 03:53:52 by antero            #+#    #+#             */
-/*   Updated: 2023/08/14 13:31:18 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/15 10:05:14 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@
 # define TEXTURE_SIZE	64
 
 /* STANDART PLAYER CAM*/
-# define ONE			1;
-# define ZERO			0;
-# define PLANE			0.66;
+# define ONE			1
+# define ZERO			0
+# define PLANE			0.66
 
 /* CONTROLS SPEED */
 # define MOV			0.2
