@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_raycasting.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 04:39:10 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/14 17:06:35 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/16 12:34:52 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	render_collumn_pixel(t_game *cub3d)
 	x = cub3d->pixel;
 	while (y < cub3d->player.tall_of_wall_y2 && y < cub3d->game_h)
 	{
-		cub3d->player.text_y = (int)pos & (TEXTURE_SIZE - 1);
+		cub3d->player.text_y = abs((int)pos);
 		pos += step_y;
 		my_mlx_pixel_put(cub3d, x, y, obtain_color(cub3d));
 		y++;

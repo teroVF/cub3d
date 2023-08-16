@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   get_color.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 00:47:57 by anvieira          #+#    #+#             */
-/*   Updated: 2023/08/14 17:40:32 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/08/16 12:33:01 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub.h"
 
 static int	obtain_color_pixel(t_data *img,
-		int point_x, int point_y)
+		int x, int y)
 {
-	return (*(int *)(img->addr + (point_y * img->line_len + point_x * \
+	return (*(unsigned int*)(img->addr + (y * img->line_len + x * \
 					(img->bpp / 8))));
 }
 

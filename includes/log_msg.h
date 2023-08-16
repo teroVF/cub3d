@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   log_msg.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 03:53:52 by antero            #+#    #+#             */
-/*   Updated: 2023/08/15 10:05:14 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/08/16 12:31:15 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,7 @@
 # define ERR_MAP_NSPAWN	"No spawn point"
 
 /* WINDOW SIZE*/
-# define WIN_W			320
-# define WIN_H			200
+# define WIN_SIZE       3
 # define WIN_TITLE		"Cub3D"
 # define TEXTURE_SIZE	64
 
